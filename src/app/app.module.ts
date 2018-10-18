@@ -5,6 +5,8 @@ import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angul
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 
+import { ConnectiviteService } from "./services/connectivite.service";
+
 @NgModule({
     bootstrap: [
         AppComponent
@@ -16,6 +18,9 @@ import { AppComponent } from "./app.component";
     ],
     declarations: [
         AppComponent
+    ],
+    providers: [
+        ConnectiviteService
     ],
     schemas: [
         NO_ERRORS_SCHEMA
