@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 import { Patient } from './models/patient.modele';
-//import { DataService } from "./data.service";
+import { DataService } from "./data.service";
 import { ConnectiviteService } from "./connectivite.service";
 
 @Injectable()
@@ -10,7 +10,9 @@ export class PatientService {
 
     patient: Patient
 
-    constructor(private http: HttpClient, private connectivite: ConnectiviteService) {
+    constructor(private http: HttpClient, 
+                private connectivite: ConnectiviteService,
+                private dataService: DataService) {
         this.getPatient('http://www.fabriquenumerique.fr/OrthalisDemo/NativeScript/patient.json'); // Appel d'un fichier JSON externe
     }
     // Test de connectivité et appel des données du serveur
@@ -19,14 +21,13 @@ export class PatientService {
             this.http.get<Patient>(url).subscribe(
                 data => {
                     this.patient = data;
-                    console.log(data);
-                    //this.data.ecritFichier('patient', 'beats', data)
-                    
+                    this.dataService.ecritFichier('Orthalis', 'patient', data );
             });
+            let tmp = this.dataService.litFichier('Orthalis', 'patient');
+            alert(tmp);
         } else {
-            //let tmp:any = this.data.litFichier('beats', 'beats');
-            // console.log(JSON.parse(tmp));
-            //console.log(tmp);
+            let tmp:any = this.dataService.litFichier('Orthalis', 'patient');
+            console.log("litFichier :"+ tmp);
         }
     }
 }

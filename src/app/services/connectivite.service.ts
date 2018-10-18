@@ -24,7 +24,7 @@ export class ConnectiviteService {
             case connectionType.ethernet:
                 // No internet connexion
                 console.log("No connection");
-                this.lancerSurveillanceReseau();
+                //this.lancerSurveillanceReseau();
                 break;
             case connectionType.wifi:
             case connectionType.mobile:
@@ -38,26 +38,26 @@ export class ConnectiviteService {
 
     }
 
-    // Lancer la surveillance du réseau
-    lancerSurveillanceReseau() {
-        startMonitoring((myConnectionType) => {
-            switch (myConnectionType) {
-                case connectionType.none:
-                    console.log("Plus de connexion");
-                    break;
-                case connectionType.wifi:
-                case connectionType.mobile:
-                case connectionType.ethernet:
-                    this.connexion = true;
-                    // Connexion retrouvée
-                    stopMonitoring();
-                // case connectionType.bluetooth:
-                //     // feature coming in NativeScript 5.0.0
-                //     console.log("Connection type changed to bluetooth.");
-                //     break;
-                default:
-                    break;
-            }
-        });
-    }
+    // // Lancer la surveillance du réseau
+    // lancerSurveillanceReseau() {
+    //     startMonitoring((myConnectionType) => {
+    //         switch (myConnectionType) {
+    //             case connectionType.none:
+    //                 console.log("Plus de connexion");
+    //                 break;
+    //             case connectionType.wifi:
+    //             case connectionType.mobile:
+    //             case connectionType.ethernet:
+    //                 this.connexion = true;
+    //                 // Connexion retrouvée
+    //                 stopMonitoring();
+    //             // case connectionType.bluetooth:
+    //             //     // feature coming in NativeScript 5.0.0
+    //             //     console.log("Connection type changed to bluetooth.");
+    //             //     break;
+    //             default:
+    //                 break;
+    //         }
+    //     });
+    // }
 }

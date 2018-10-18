@@ -10,6 +10,7 @@ import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 // Services
 import { ConnectiviteService } from "./services/connectivite.service";
 import { PatientService } from "./services/patient.service";
+import { DataService } from "./services/data.service";
 
 @NgModule({
     bootstrap: [
@@ -26,7 +27,8 @@ import { PatientService } from "./services/patient.service";
     ],
     providers: [
         ConnectiviteService,
-        PatientService
+        PatientService,
+        DataService
     ],
     schemas: [
         NO_ERRORS_SCHEMA
