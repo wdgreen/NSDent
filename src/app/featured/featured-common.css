@@ -1,0 +1,27 @@
+ActionBar {
+    background: linear-gradient(to right, #435F71, #57CCC6);
+    height: 60;
+}
+
+.header {
+    width:100%;
+    margin-top: -25;
+}
+.imgProfil {
+    width: 125;
+    height: 125;
+    border-radius: 100%;
+    margin-top: -65;
+}
+
+.h1 {
+    text-align: center;
+}
+
+.br {
+    height: 20;
+}
+
+TextField {
+    width: 75%;
+}

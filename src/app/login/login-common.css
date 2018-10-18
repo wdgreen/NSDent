@@ -1,0 +1,37 @@
+ActionBar {
+    background: linear-gradient(to right, #435F71, #57CCC6);
+    height: 45;
+}
+
+.header {
+    width:100%;
+    margin-top: -25;
+}
+.headerImg {
+    width: 300;
+    height: 300;
+    margin-top: -75;
+}
+
+.h1 {
+    text-align: center;
+}
+
+.br {
+    height: 20;
+}
+
+TextField {
+    width: 75%;
+}
+
+Button {
+    width: 40%;
+    height: 45;
+    background: #EF7926;
+}
+
+.footer {
+    rotate: 180;
+    bottom: 0;
+}
