@@ -12,10 +12,27 @@
     <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
         ios.position="left">
     </ActionItem>
-    <Label class="action-bar-title" text="Featured"></Label>
+    <Label class="action-bar-title"></Label>
 </ActionBar>
 
-<GridLayout class="page page-content">
-    <Label class="page-icon fa" text="&#xf005;"></Label>
-    <Label class="page-placeholder" text="<!-- Page content goes here -->"></Label>
-</GridLayout>
+<ScrollView>
+    <StackLayout class="page page-content">
+    
+        <Image src="res://vaguetop" class="header"></Image>
+
+        <Image src="res://orthalis" class="imgProfil"></Image>
+        <Label class="h1" text="Nicky Larson"></Label>
+
+        <Label class="br"></Label>
+        
+        <StackLayout>
+            <TextField hint="Prénom" text="" editable="false"></TextField>
+            <TextField hint="Nom" text="" editable="false"></TextField>
+            <TextField hint="Téléphone" text="" editable="false"></TextField>
+            <TextField hint="Mobile" text="" editable="false"></TextField>
+            <TextField hint="Email" text="" editable="false"></TextField>
+        </StackLayout>
+        
+
+    </StackLayout>
+</ScrollView>
