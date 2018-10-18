@@ -5,7 +5,11 @@ import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angul
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 
+// Framework Modules
+import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
+// Services
 import { ConnectiviteService } from "./services/connectivite.service";
+import { PatientService } from "./services/patient.service";
 
 @NgModule({
     bootstrap: [
@@ -14,13 +18,15 @@ import { ConnectiviteService } from "./services/connectivite.service";
     imports: [
         AppRoutingModule,
         NativeScriptModule,
-        NativeScriptUISideDrawerModule
+        NativeScriptUISideDrawerModule,
+        NativeScriptHttpClientModule
     ],
     declarations: [
         AppComponent
     ],
     providers: [
-        ConnectiviteService
+        ConnectiviteService,
+        PatientService
     ],
     schemas: [
         NO_ERRORS_SCHEMA

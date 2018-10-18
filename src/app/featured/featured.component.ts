@@ -3,6 +3,7 @@ import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
 
 import { ConnectiviteService } from "../services/connectivite.service";
+import { PatientService } from "../services/patient.service";
 
 @Component({
     selector: "Featured",
@@ -12,13 +13,14 @@ import { ConnectiviteService } from "../services/connectivite.service";
 })
 export class FeaturedComponent implements OnInit {
 
-    constructor(private connectiviteService:ConnectiviteService) {
+    constructor(private connectiviteService:ConnectiviteService,
+                private patientService:PatientService) {
         // Use the component constructor to inject providers.
     }
 
     ngOnInit(): void {
         if(this.connectiviteService.connexion){
-            alert("vous êtes connecté à internet !");
+            this.patientService;
         }
         else{
             alert("Pas connecté");
