@@ -18,9 +18,7 @@ export class FeaturedComponent implements OnInit {
         // Use the component constructor to inject providers.
     }
 
-    ngOnInit(): void {
-        
-    }
+    ngOnInit(): void { }
 
     onDrawerButtonTap(): void {
         const sideDrawer = <RadSideDrawer>app.getRootView();
