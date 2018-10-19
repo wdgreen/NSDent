@@ -19,13 +19,7 @@ export class FeaturedComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        if(this.connectiviteService.connexion){
-            this.patientService;
-        }
-        else{
-            alert("Pas connecté");
-        }
-        // Init your component properties here.
+        
     }
 
     onDrawerButtonTap(): void {
