@@ -17,12 +17,12 @@
 
 <ScrollView>
     <StackLayout class="page page-content">
-    
-        <Image src="res://vaguetop" class="header"></Image>
 
         <StackLayout *ngFor="let p of patientService.patient">
-            <Image src="res://orthalis" class="imgProfil"></Image>
-            <Label class="h1" text="Nom Prénom"></Label>
+            <Image src="res://vaguetop" class="header"></Image>
+            <Image [src]="p.photos[0].lien" class="imgProfil"></Image>
+            <Label class="br"></Label>
+            <Label class="h1" [text]="p.etatCivil.prenom"></Label>
             <Label class="br"></Label>
             <StackLayout>
                 <TextField hint="Prénom" [text]="p.etatCivil.prenom" editable="false"></TextField>

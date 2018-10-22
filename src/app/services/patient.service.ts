@@ -2,7 +2,6 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 import { Patient } from './models/patient.modele';
-import { DataService } from "./data.service";
 import { ConnectiviteService } from "./connectivite.service";
 import { Folder, File, knownFolders } from "tns-core-modules/file-system/file-system";
 
@@ -14,34 +13,45 @@ export class PatientService {
     documents: Folder;
     dossier: Folder;
     fichier: File;
-    
-    constructor(private http: HttpClient, 
-                private connectiviteService: ConnectiviteService,
-                private dataService: DataService) {
-        this.getPatient('http://www.fabriquenumerique.fr/OrthalisDemo/NativeScript/patient.json'); // Appel d'un fichier JSON externe
+
+    constructor(private http: HttpClient, private connectiviteService: ConnectiviteService) {
+        this.getPatient();
     }
-    // Test de connectivité et appel des données du serveur
-    getPatient(url: string) {
+
+    getPatient() {
+        this.documents = knownFolders.documents();
+        this.dossier = this.documents.getFolder("Orthalis");
+        this.fichier = this.dossier.getFile("patient.json");
+
+        // User on Internet
         if (this.connectiviteService.connexion) {
-            this.http.get<Patient>(url).subscribe(
+            // Get informations from server and write them on local file
+            this.http.get<Patient>("http://www.fabriquenumerique.fr/OrthalisDemo/NativeScript/patient.json").subscribe(
                 data => {
                     this.patient = data;
-                    console.log("Contenu envoyé à l'écriture : " + JSON.stringify(data));
-                    this.dataService.ecritFichier('Orthalis', 'patient', JSON.stringify(data) );
-            });
+                    this.fichier.writeText(JSON.stringify(data))
+                        .then(result => {
+                            this.fichier.readText()
+                                .then(res => {
+                                    console.log("Ecriture réussie du fichier " + this.fichier.path);
+                                    console.log("contenu écrit : " + res);
+                                })
+                                .catch(err => {
+                                    console.log(err.stack);
+                                });
+                        })
+                        .catch(err => {
+                            console.log(err);
+                        });
+                }
+            );
+        // User not connected
         } else {
             // Read a local file
-            this.documents = knownFolders.documents();
-            this.dossier = this.documents.getFolder("Orthalis");
-            this.fichier = this.dossier.getFile("patient.json");
             this.fichier.readText()
-                .then( (res) => {
+                .then((res) => {
                     this.patient = JSON.parse(res);
-            });
+                });
         }
     };
 }
-// setTimeout(this.dataService.litFichier('Orthalis', 'patient'), 200);
-                //console.log( "Lecture finale du fichier : " + this.dataService.litFichier('Orthalis', 'patient') );
-                // this.patient = JSON.parse( this.dataService.litFichier('Orthalis', 'patient') );
-                // console.log( "litFichier" + this.dataService.litFichier('Orthalis', 'patient') );

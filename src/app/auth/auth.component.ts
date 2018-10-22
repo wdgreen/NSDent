@@ -4,12 +4,12 @@ import { RouterExtensions } from "nativescript-angular/router";
 // import * as app from "tns-core-modules/application";
 
 @Component({
-    selector: "Login",
+    selector: "Auth",
     moduleId: module.id,
-    templateUrl: "./login.component.html",
-    styleUrls: ["./login-common.css"]
+    templateUrl: "./auth.component.html",
+    styleUrls: ["./auth-common.css"]
 })
-export class LoginComponent implements OnInit {
+export class AuthComponent implements OnInit {
 
     constructor(private routerExtensions:RouterExtensions) {
         // Use the component constructor to inject providers.
@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
 
     submit() {
         // Pour l'instant le bouton valider change de page pour featured
-        this.routerExtensions.navigate(["auth"], {
+        this.routerExtensions.navigate(["featured"], {
             transition: {
                 name: "fade"
             }

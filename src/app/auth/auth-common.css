@@ -6,18 +6,20 @@ ActionBar {
     margin-top: -45;
 }
 
-.headerImg {
-    width: 300;
-    height: 300;
-    margin-top: -75;
+.coverImage {
+    background-image: url("res://auth");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
+
 
 .h1 {
     text-align: center;
 }
 
 .br {
-    height: 15;
+    height: 30;
 }
 
 TextField {
@@ -27,7 +29,7 @@ TextField {
 Button {
     width: 40%;
     height: 45;
-    background: #EF7926;
+    background: #57CCC6;
 }
 
 .footer {

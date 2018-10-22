@@ -1,17 +1,16 @@
 ActionBar {
     background: linear-gradient(to right, #435F71, #57CCC6);
-    height: 60;
 }
-
 .header {
     width:100%;
-    margin-top: -25;
+    margin-top: -45;
 }
+
 .imgProfil {
     width: 125;
     height: 125;
     border-radius: 100%;
-    margin-top: -65;
+    margin-top: -48;
 }
 
 .h1 {
@@ -19,7 +18,7 @@ ActionBar {
 }
 
 .br {
-    height: 20;
+    height: 15;
 }
 
 TextField {
