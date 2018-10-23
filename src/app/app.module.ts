@@ -11,6 +11,8 @@ import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 import { ConnectiviteService } from "./services/connectivite.service";
 import { PatientService } from "./services/patient.service";
 import { DeconnexionService } from "./services/deconnexion.service";
+import { AuthService } from "~/app/services/auth.service";
+import { LoginService } from "~/app/services/login.service";
 
 @NgModule({
     bootstrap: [
@@ -28,7 +30,9 @@ import { DeconnexionService } from "./services/deconnexion.service";
     providers: [
         ConnectiviteService,
         PatientService,
-        DeconnexionService
+        DeconnexionService,
+        AuthService,
+        LoginService
     ],
     schemas: [
         NO_ERRORS_SCHEMA

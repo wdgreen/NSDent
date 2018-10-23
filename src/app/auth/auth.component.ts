@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { RouterExtensions } from "nativescript-angular/router";
-// import { NavigationEnd, Router } from "@angular/router";
-// import * as app from "tns-core-modules/application";
+
+import { Auth } from "../services/models/auth.modele";
+import { AuthService } from "~/app/services/auth.service";
 
 @Component({
     selector: "Auth",
@@ -11,7 +12,10 @@ import { RouterExtensions } from "nativescript-angular/router";
 })
 export class AuthComponent implements OnInit {
 
-    constructor(private routerExtensions:RouterExtensions) {
+    formulaire: Auth;
+
+    constructor(private routerExtensions:RouterExtensions,
+                private authService:AuthService) {
         // Use the component constructor to inject providers.
     }
 
@@ -20,6 +24,20 @@ export class AuthComponent implements OnInit {
     }
 
     submit() {
+        // Ajouter : [(ngModel)]="formulaire.username"
+        //           [(ngModel)]="formulaire.password"
+
+        // this.authService.loginUser(this.formulaire)
+        //     .subscribe(
+        //         res => {
+        //             console.log(res.token);
+        //         },
+        //         err => {
+        //             alert("identifiants incorrects");
+        //             console.log(err);
+        //         }
+        // );
+
         // Pour l'instant le bouton valider change de page pour featured
         this.routerExtensions.navigate(["featured"], {
             transition: {
@@ -27,8 +45,4 @@ export class AuthComponent implements OnInit {
             }
         });
     }
-    // onDrawerButtonTap(): void {
-    //     const sideDrawer = <RadSideDrawer>app.getRootView();
-    //     sideDrawer.showDrawer();
-    // }
 }

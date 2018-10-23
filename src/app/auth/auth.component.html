@@ -3,19 +3,37 @@
 </ActionBar>
 
 <StackLayout class="page page-content coverImage">
-        <Image src="res://vaguetop" class="header"></Image>
+    <Image src="res://vaguetop" class="header"></Image>
 
-        <Label class="br"></Label>
-        <Label text="Bienvenue" class="h1"></Label>
+    <Label class="br"></Label>
+    <Label text="Bienvenue" class="h1"></Label>
+    <Label class="br"></Label>
 
-        <Label class="br"></Label>
-        <TextField hint="Code patient" autocapitalizationType="none" returnKeyType="next" class="input input-rounded m-t-10"></TextField>
-        <TextField hint="Mot de passe" autocapitalizationType="none" returnKeyType="done" class="input input-rounded m-t-10"></TextField>
-        
-        <Label class="br"></Label>
-        <Label class="br"></Label>
-        <Button text="Valider" (tap)="submit()" class="btn btn-primary btn-rounded-lg"></Button>
-    </StackLayout>
+    <TextField hint="Code patient" 
+        secure="false" 
+        returnKeyType="next" 
+        autocapitalizationType="none" 
+        autocorrect="false" 
+        keyboardType="url" 
+        class="input" 
+        autofocus 
+        minLength="3" 
+        required 
+    ></TextField>
+    <TextField hint="Mot de passe" 
+        secure="true" 
+        returnKeyType="done" 
+        autocapitalizationType="none" 
+        autocorrect="false" 
+        keyboardType="url" 
+        class="input" 
+        minLength="3" 
+        required 
+    ></TextField>
+
+    <Label class="br"></Label>
+    <Button text="Valider" (tap)="submit()" class="btn btn-primary btn-rounded-lg"></Button>
+</StackLayout>
 
 <DockLayout stretchLastChild="false">
     <Image src="res://vaguetop" class="footer" dock="bottom"></Image>
