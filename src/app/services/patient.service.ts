@@ -14,7 +14,9 @@ export class PatientService {
     dossier: Folder;
     fichier: File;
 
-    constructor(private http: HttpClient, private connectiviteService: ConnectiviteService) {
+    recup: boolean = false;
+
+    constructor(private http: HttpClient, private connectiviteService: ConnectiviteService) { 
         this.getPatient();
     }
 
@@ -23,9 +25,21 @@ export class PatientService {
         this.dossier = this.documents.getFolder("Orthalis");
         this.fichier = this.dossier.getFile("patient.json");
 
-        // User on Internet
+        // Always read a local file
+        this.fichier.readText()
+            .then((res) => {
+                this.patient = JSON.parse(res);
+                this.recup = true;
+                console.log("Contenu local récupéré");
+            })
+            // If user not connected and run app for the first time
+            .catch((err) => {
+                console.log(err);
+                this.recup = false;
+        });
+        // If user connected -> get informations from server and write them on local file
         if (this.connectiviteService.connexion) {
-            // Get informations from server and write them on local file
+            // 
             this.http.get<Patient>("http://www.fabriquenumerique.fr/OrthalisDemo/NativeScript/patient.json").subscribe(
                 data => {
                     this.patient = data;
@@ -45,13 +59,6 @@ export class PatientService {
                         });
                 }
             );
-        // User not connected
-        } else {
-            // Read a local file
-            this.fichier.readText()
-                .then((res) => {
-                    this.patient = JSON.parse(res);
-                });
         }
-    };
+    }
 }
