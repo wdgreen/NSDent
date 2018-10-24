@@ -1,6 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { RouterExtensions } from "nativescript-angular/router";
+
 import { Auth } from "~/app/services/models/auth.modele";
+import { LoginService } from "~/app/services/login.service";
+
 // import { NavigationEnd, Router } from "@angular/router";
 // import * as app from "tns-core-modules/application";
 
@@ -14,7 +17,8 @@ export class LoginComponent implements OnInit {
 
     formulaire: Auth;
 
-    constructor(private routerExtensions:RouterExtensions) {
+    constructor(private routerExtensions:RouterExtensions,
+                private loginService:LoginService) {
         // Use the component constructor to inject providers.
     }
 
@@ -25,16 +29,16 @@ export class LoginComponent implements OnInit {
     submit() {
         // Ajouter : [(ngModel)]="formulaire.codeCabinet"
 
-        // this.authService.loginCabinet(this.formulaire)
-        //     .subscribe(
-        //         res => {
-        //             console.log(res);
-        //         },
-        //         err => {
-        //             alert("Code cabinet incorrect");
-        //             console.log(err);
-        //         }
-        // );
+        this.loginService.loginCabinet(this.formulaire)
+            .subscribe(
+                res => {
+                    console.log(res);
+                },
+                err => {
+                    alert("Code cabinet incorrect");
+                    console.log(err);
+                }
+        );
 
         // Pour l'instant le bouton valider change de page pour featured
         this.routerExtensions.navigate(["auth"], {
