@@ -13,14 +13,16 @@ router.use(bodyParser.json());
 router.post('/cabinet', (req, res) => {
     let userData = req.body;
     console.log("Ce qui est reçu du formulaire : " + userData);
-    connection.query(`SELECT * FROM cabinet WHERE code_cabinet = ${userData.codeCabinet}`, (err, cabinet) => {
+    connection.query(`SELECT * FROM cabinet WHERE code_cabinet = "${userData.codeCabinet}" `, (err, cabinet) => {
         if (err) {
             console.log(err);
         } else {
             if (!cabinet) {
                 console.log("Aucun cabinet ne correspond à ce code !");
+                res.status(401).send('Code cabinet invalide');
             } else {
                 console.log("Cabinet trouvé !");
+                res.status(200).send('Cabinet trouvé !');
                 res.json(cabinet);
             }
             

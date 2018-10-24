@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
                     console.log(res);
                 },
                 err => {
-                    alert("Code cabinet incorrect");
+                    alert("Code cabinet incorrect" + err);
                     console.log(err);
                 }
         );
@@ -46,6 +46,8 @@ export class LoginComponent implements OnInit {
                 name: "fade"
             }
         });
+
+        
     }
     // onDrawerButtonTap(): void {
     //     const sideDrawer = <RadSideDrawer>app.getRootView();
