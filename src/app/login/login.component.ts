@@ -15,7 +15,7 @@ import { LoginService } from "~/app/services/login.service";
 })
 export class LoginComponent implements OnInit {
 
-    codeCabinet = "";
+    formulaire: Auth = {"codeCabinet":"AAA"}
 
     constructor(private routerExtensions:RouterExtensions,
                 private loginService:LoginService) {
@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     submit() {
         // Ajouter : [(ngModel)]="formulaire.codeCabinet"
 
-        this.loginService.loginCabinet(this.codeCabinet)
+        this.loginService.loginCabinet(this.formulaire)
             .subscribe(
                 res => {
                     console.log(res);

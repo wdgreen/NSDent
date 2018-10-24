@@ -11,6 +11,7 @@ export class LoginService {
                 private routerExtensions: RouterExtensions) { }
 
     loginCabinet(formulaire) {
-        return this.http.post<Auth>("http://localhost:3000/cabinet/cabinet", formulaire);
+        console.log("envoi du formulaire : " + JSON.stringify(formulaire));
+        return this.http.post<any>("http://192.168.2.70:3000/cabinet/cabinet", formulaire);
     }
 }
