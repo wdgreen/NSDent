@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { RouterExtensions } from "nativescript-angular/router";
-import { Auth } from '~/app/services/models/auth.modele';
+import { HttpClient } from "@angular/common/http";
 
+import { Auth } from '~/app/services/models/auth.modele';
 
 @Injectable()
 export class AuthService {
 
-    auth: Auth;
+    constructor(private http: HttpClient) { }
 
-    constructor(private http: HttpClient,
-                private routerExtensions: RouterExtensions) { }
+    loginCabinet(formulaire) {
+        return this.http.post<any>("http://192.168.2.70:3000/cabinet/cabinet", formulaire);
+    }
 
     loginUser(formulaire) {
         return this.http.post<Auth>("http://localhost:3000/user/login", formulaire);

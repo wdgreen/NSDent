@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 import { RouterExtensions } from "nativescript-angular/router";
 
 import { Auth } from "~/app/services/models/auth.modele";
-import { LoginService } from "~/app/services/login.service";
+import { AuthService } from "~/app/services/auth.service";
 
 @Component({
     selector: "Login",
@@ -15,11 +15,11 @@ export class LoginComponent {
     formulaire: Auth = {"codeCabinet":""};
 
     constructor(private routerExtensions:RouterExtensions,
-                private loginService:LoginService) {
+                private authService:AuthService) {
     }
 
     submit() {
-        this.loginService.loginCabinet(this.formulaire)
+        this.authService.loginCabinet(this.formulaire)
             .subscribe(
                 res => {
                     console.log("Le code cabinet est valide est la reponse est : " + res);

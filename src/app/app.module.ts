@@ -12,7 +12,6 @@ import { ConnectiviteService } from "./services/connectivite.service";
 import { PatientService } from "./services/patient.service";
 import { SessionService } from "./services/session.service";
 import { AuthService } from "~/app/services/auth.service";
-import { LoginService } from "~/app/services/login.service";
 // Guards
 import { SessionGuard } from "~/app/services/session.guard";
 import { AuthGuard } from "~/app/services/auth.guard";
@@ -35,7 +34,6 @@ import { AuthGuard } from "~/app/services/auth.guard";
         PatientService,
         SessionService,
         AuthService,
-        LoginService,
         SessionGuard,
         AuthGuard
     ],
