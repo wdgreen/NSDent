@@ -3,7 +3,7 @@ import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
 
 import { RouterExtensions } from "nativescript-angular/router";
-import { DeconnexionService } from "../services/deconnexion.service";
+import { SessionService } from "~/app/services/session.service";
 
 @Component({
     selector: "Settings",
@@ -14,7 +14,7 @@ import { DeconnexionService } from "../services/deconnexion.service";
 export class SettingsComponent implements OnInit {
 
     constructor(private routerExtensions:RouterExtensions,
-                private deconnexionService:DeconnexionService) {
+                private sessionService:SessionService) {
         // Use the component constructor to inject providers.
     }
 
@@ -23,13 +23,7 @@ export class SettingsComponent implements OnInit {
     }
 
     submit() {
-        // Pour l'instant le bouton valider change de page pour featured
-        this.deconnexionService.deconnecte();
-        this.routerExtensions.navigate(["login"], {
-            transition: {
-                name: "fade"
-            }
-        });
+        this.sessionService.deconnecteSession();
     }
 
     onDrawerButtonTap(): void {

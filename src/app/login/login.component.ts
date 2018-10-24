@@ -1,11 +1,8 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { RouterExtensions } from "nativescript-angular/router";
 
 import { Auth } from "~/app/services/models/auth.modele";
 import { LoginService } from "~/app/services/login.service";
-
-// import { NavigationEnd, Router } from "@angular/router";
-// import * as app from "tns-core-modules/application";
 
 @Component({
     selector: "Login",
@@ -13,39 +10,32 @@ import { LoginService } from "~/app/services/login.service";
     templateUrl: "./login.component.html",
     styleUrls: ["./login-common.css"]
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
-    formulaire: Auth = {"codeCabinet":"AAA"}
+    formulaire: Auth = {"codeCabinet":""};
 
     constructor(private routerExtensions:RouterExtensions,
                 private loginService:LoginService) {
-        // Use the component constructor to inject providers.
-    }
-
-    ngOnInit() {
-        // Init your component properties here.
     }
 
     submit() {
-        // Ajouter : [(ngModel)]="formulaire.codeCabinet"
-
         this.loginService.loginCabinet(this.formulaire)
             .subscribe(
                 res => {
-                    console.log(res);
+                    console.log("Le code cabinet est valide est la reponse est : " + res);
+
+                    this.routerExtensions.navigate(["auth"], {
+                        transition: {
+                            name: "fade"
+                        }
+                    });
                 },
                 err => {
-                    alert("Code cabinet incorrect" + err);
                     console.log(err);
                 }
         );
 
-        // Pour l'instant le bouton valider change de page pour featured
-        this.routerExtensions.navigate(["auth"], {
-            transition: {
-                name: "fade"
-            }
-        });
+        
 
         
     }
