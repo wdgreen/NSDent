@@ -4,7 +4,6 @@ import { RouterExtensions } from "nativescript-angular/router";
 
 import { Auth } from '~/app/services/models/auth.modele';
 
-
 @Injectable()
 export class LoginService {
 
@@ -12,6 +11,6 @@ export class LoginService {
                 private routerExtensions: RouterExtensions) { }
 
     loginCabinet(formulaire) {
-        return this.http.post<Auth>("http://localhost:3000/user/login", formulaire);
+        return this.http.post<Auth>("http://localhost:3000/cabinet/cabinet", formulaire);
     }
 }
