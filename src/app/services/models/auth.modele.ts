@@ -1,7 +1,9 @@
 export interface Auth {
-    codeCabinet: string;
+    codePatient: string;
+    motDePasse: string;
+    token: string;
 }
 
-// username: string;
-    // password: string;
-    // token: string;
+export interface Login {
+    codeCabinet: string;
+}

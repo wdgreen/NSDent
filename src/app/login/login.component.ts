@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { RouterExtensions } from "nativescript-angular/router";
 
-import { Auth } from "~/app/services/models/auth.modele";
+import { Login } from "~/app/services/models/auth.modele";
 import { AuthService } from "~/app/services/auth.service";
 import { Globals } from "~/app/services/globals";
 
@@ -13,7 +13,7 @@ import { Globals } from "~/app/services/globals";
 })
 export class LoginComponent {
 
-    formulaire: Auth = {"codeCabinet":""};
+    formulaire: Login = {"codeCabinet":""};
 
     constructor(private routerExtensions:RouterExtensions,
                 private authService:AuthService) {
