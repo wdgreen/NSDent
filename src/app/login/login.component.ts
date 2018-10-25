@@ -3,7 +3,9 @@ import { RouterExtensions } from "nativescript-angular/router";
 
 import { Login } from "~/app/services/models/auth.modele";
 import { AuthService } from "~/app/services/auth.service";
+
 import { Globals } from "~/app/services/globals";
+import { DataService } from "~/app/services/data.service";
 
 @Component({
     selector: "Login",
@@ -16,7 +18,8 @@ export class LoginComponent {
     formulaire: Login = {"codeCabinet":""};
 
     constructor(private routerExtensions:RouterExtensions,
-                private authService:AuthService) {
+                private authService:AuthService,
+                private dataService:DataService) {
     }
 
     submit() {
@@ -24,8 +27,10 @@ export class LoginComponent {
             .subscribe(
                 res => {
                     if(res != ""){
-                        Globals.cabinet = res;
-                        console.log("Le code cabinet est valide est la reponse est : " + JSON.stringify(res) );
+                        console.log("Bon code cabinet");
+                        // Write infos in local file
+                        this.dataService.ecritInfos("Orthalis", "cabinet.json", res);
+                        // Redirect to user authentifcation page
                         this.routerExtensions.navigate(["auth"], {
                             transition: {
                                 name: "fade"

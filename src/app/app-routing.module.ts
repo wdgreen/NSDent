@@ -2,7 +2,6 @@ import { NgModule } from "@angular/core";
 import { Routes } from "@angular/router";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { SessionGuard } from "~/app/services/session.guard";
-import { AuthGuard } from "~/app/services/auth.guard";
 
 const routes: Routes = [
     { path: "", redirectTo: "/login", pathMatch: "full" },

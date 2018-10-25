@@ -1,4 +1,3 @@
-
 // Framework Modules
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -10,11 +9,10 @@ import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angul
 // Services
 import { ConnectiviteService } from "./services/connectivite.service";
 import { PatientService } from "./services/patient.service";
-import { SessionService } from "./services/session.service";
 import { AuthService } from "~/app/services/auth.service";
+import { DataService } from "~/app/services/data.service";
 // Guards
 import { SessionGuard } from "~/app/services/session.guard";
-import { AuthGuard } from "~/app/services/auth.guard";
 
 @NgModule({
     bootstrap: [
@@ -32,10 +30,9 @@ import { AuthGuard } from "~/app/services/auth.guard";
     providers: [
         ConnectiviteService,
         PatientService,
-        SessionService,
         AuthService,
-        SessionGuard,
-        AuthGuard
+        DataService,
+        SessionGuard
     ],
     schemas: [
         NO_ERRORS_SCHEMA

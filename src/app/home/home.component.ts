@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        console.log(Globals.cabinet);
+        console.log(JSON.stringify(Globals.cabinet) );
         // Init your component properties here.
     }
 
