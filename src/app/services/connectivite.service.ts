@@ -47,6 +47,7 @@ export class ConnectiviteService {
                 case connectionType.mobile:
                     this.connexion = true;
                     console.log("Connection type changed to true.");
+                    stopMonitoring();
                     break;
                 default:
                     break;

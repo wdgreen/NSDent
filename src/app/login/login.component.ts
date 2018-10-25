@@ -3,6 +3,7 @@ import { RouterExtensions } from "nativescript-angular/router";
 
 import { Auth } from "~/app/services/models/auth.modele";
 import { AuthService } from "~/app/services/auth.service";
+import { Globals } from "~/app/services/globals";
 
 @Component({
     selector: "Login",
@@ -23,6 +24,7 @@ export class LoginComponent {
             .subscribe(
                 res => {
                     if(res != ""){
+                        Globals.cabinet = res;
                         console.log("Le code cabinet est valide est la reponse est : " + JSON.stringify(res) );
                         this.routerExtensions.navigate(["auth"], {
                             transition: {

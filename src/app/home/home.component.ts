@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
+import { Globals } from "~/app/services/globals";
 
 @Component({
     selector: "Home",
@@ -14,6 +15,7 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        console.log(Globals.cabinet);
         // Init your component properties here.
     }
 
