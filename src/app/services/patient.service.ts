@@ -14,7 +14,7 @@ export class PatientService {
     dossier: Folder;
     fichier: File;
 
-    recup: boolean = false;
+    recupLocal: boolean = false;
 
     constructor(private http: HttpClient, private connectiviteService: ConnectiviteService) { 
         this.getPatient();
@@ -28,18 +28,17 @@ export class PatientService {
         // Always read a local file
         this.fichier.readText()
             .then((res) => {
-                this.patient = JSON.parse(res);
-                this.recup = true;
                 console.log("Contenu local récupéré");
+                this.recupLocal = true;
+                this.patient = JSON.parse(res);
             })
             // If user not connected and run app for the first time
             .catch((err) => {
-                console.log(err);
-                this.recup = false;
+                console.log("Service patient : " + err);
+                this.recupLocal = false;
         });
         // If user connected -> get informations from server and write them on local file
-        if (this.connectiviteService.connexion) {
-            // 
+        if (this.connectiviteService.testeConnectivite() ) {
             this.http.get<Patient>("http://www.fabriquenumerique.fr/OrthalisDemo/NativeScript/patient.json").subscribe(
                 data => {
                     this.patient = data;
@@ -47,6 +46,7 @@ export class PatientService {
                         .then(result => {
                             this.fichier.readText()
                                 .then(res => {
+                                    console.log("Contenu local mis à jour");
                                     console.log("Ecriture réussie du fichier " + this.fichier.path);
                                     console.log("contenu écrit : " + res);
                                 })
@@ -57,8 +57,19 @@ export class PatientService {
                         .catch(err => {
                             console.log(err);
                         });
+                },
+                err => {
+                    console.log("Service patient : " + err);
                 }
             );
+        }
+        else if (!this.connectiviteService.testeConnectivite() && this.recupLocal) {
+            console.log("Contenu local récupéré, surveillance connectivité ...");
+            this.connectiviteService.surveilleReseau();
+        }
+        else {
+            alert("Veuillez vous connecter à internet pour récupérer vos informations, surveillance connectivité ...");
+            this.connectiviteService.surveilleReseau();
         }
     }
 }

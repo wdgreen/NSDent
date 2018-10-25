@@ -10,7 +10,6 @@ export class AuthGuard implements CanActivate {
 
     canActivate(): boolean {
         if (this.sessionService.testeSession() ) {
-            console.log("AuthGuard : Page autorisée par la garde");
             return true;
         } else {
             console.log("AuthGuard : Erreur authentification");

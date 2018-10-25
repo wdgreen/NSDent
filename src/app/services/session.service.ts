@@ -30,14 +30,14 @@ export class SessionService {
         this.dossier.remove()
             .then((res) => {
                 console.log("Contenu local supprimé");
-                this.routerExtensions.navigate(["login"], {
-                    transition: {
-                        name: "fade"
-                    }
-                });
             })
             .catch((err) => {
                 console.log(err.stack);
+            });
+        this.routerExtensions.navigate(["login"], {
+            transition: {
+                name: "fade"
+            }
         });
     }
 }

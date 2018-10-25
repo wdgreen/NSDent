@@ -22,25 +22,21 @@ export class LoginComponent {
         this.authService.loginCabinet(this.formulaire)
             .subscribe(
                 res => {
-                    console.log("Le code cabinet est valide est la reponse est : " + res);
-
-                    this.routerExtensions.navigate(["auth"], {
-                        transition: {
-                            name: "fade"
-                        }
-                    });
+                    if(res != ""){
+                        console.log("Le code cabinet est valide est la reponse est : " + JSON.stringify(res) );
+                        this.routerExtensions.navigate(["auth"], {
+                            transition: {
+                                name: "fade"
+                            }
+                        });
+                    } else {
+                        console.log("Mauvais code cabinet ...");
+                        alert("Aucun code cabinet correspondant, veuillez entrer un code valide.");
+                    }
                 },
                 err => {
-                    console.log(err);
+                    console.log("Erreur serveur" + err);
                 }
-        );
-
-        
-
-        
+            )
     }
-    // onDrawerButtonTap(): void {
-    //     const sideDrawer = <RadSideDrawer>app.getRootView();
-    //     sideDrawer.showDrawer();
-    // }
 }
