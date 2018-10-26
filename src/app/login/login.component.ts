@@ -3,8 +3,6 @@ import { RouterExtensions } from "nativescript-angular/router";
 
 import { Login } from "~/app/services/models/auth.modele";
 import { AuthService } from "~/app/services/auth.service";
-
-import { Globals } from "~/app/services/globals";
 import { DataService } from "~/app/services/data.service";
 
 @Component({
@@ -29,7 +27,9 @@ export class LoginComponent {
                     if(res != ""){
                         console.log("Bon code cabinet");
                         // Write infos in local file
-                        this.dataService.ecritInfos("Orthalis", "cabinet.json", res);
+                        this.dataService.ecritInfos("Orthalis", "cabinet", res );
+                        // Store them in Globals
+                        this.dataService.globaliseInfos("Orthalis", "cabinet");
                         // Redirect to user authentifcation page
                         this.routerExtensions.navigate(["auth"], {
                             transition: {
@@ -37,12 +37,13 @@ export class LoginComponent {
                             }
                         });
                     } else {
-                        console.log("Mauvais code cabinet ...");
+                        console.log("Mauvais code cabinet.")
                         alert("Aucun code cabinet correspondant, veuillez entrer un code valide.");
                     }
                 },
                 err => {
-                    console.log("Erreur serveur" + err);
+                    console.log("Erreur serveur.")
+                    alert("Erreur serveur");
                 }
             )
     }

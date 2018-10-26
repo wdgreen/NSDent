@@ -17,18 +17,20 @@ export class DataService {
         this.documents = knownFolders.documents();
     }
 
+    // Used for skip Login page (SessionGuard)
     testeInfos(tDossier, tFichier) {
         this.dossier = this.documents.getFolder(tDossier);
-        if(this.dossier.contains(tFichier)) {
+        if(this.dossier.contains(tFichier + ".json")) {
             return true;
         } else {
             return false;
         }
     }
 
-    litInfos(lDossier, lFichier) {
+    // Used for store infos in Globals (SessionGuard)
+    globaliseInfos(lDossier, lFichier) {
         this.dossier = this.documents.getFolder(lDossier);
-        this.fichier = this.dossier.getFile(lFichier);
+        this.fichier = this.dossier.getFile(lFichier + ".json");
 
         this.fichier.readText()
             .then(res => {
@@ -38,19 +40,25 @@ export class DataService {
             .catch(err => {
                 console.log("Pas de contenu local pour " + lFichier);
                 return;
-            })
-        console.log("variable globale = " + Globals.cabinet);
+            });
     }
 
+    // Used for remove infos in Globals (SessionGuard)
+    deglobaliseInfos() {
+        delete Globals.cabinet;
+    }
+
+    // Used for write datas in local file (LoginComponent)
     ecritInfos(eDossier, eFichier, eContenu) {
         this.dossier = this.documents.getFolder(eDossier);
-        this.fichier = this.dossier.getFile(eFichier);
+        this.fichier = this.dossier.getFile(eFichier + ".json");
 
         this.fichier.writeText(JSON.stringify(eContenu))
             .then(result => {
                 this.fichier.readText()
                     .then(res => {
                         console.log("Contenu local de " + eFichier + " mis à jour");
+                        console.log(eFichier + " = " + res);
                     })
                     .catch(err => {
                         console.log(err.stack);
@@ -61,36 +69,18 @@ export class DataService {
             });
     };
 
+    // Used for delete local file (SettingsComponent)
     supprimeInfos(sDossier) {
         this.dossier = this.documents.getFolder(sDossier);
         
         this.dossier.remove();
     }
 
+// End DataService
 }
 
 
 
-
-
-    // recupereInfos(fDossier, fFichier) {
-    //     this.documents = knownFolders.documents();
-    //     this.dossier = this.documents.getFolder(fDossier);
-    //     this.fichier = this.dossier.getFile(fFichier);
-
-    //     // Always read a local file
-    //     this.fichier.readText()
-    //         .then((res) => {
-    //             console.log("Contenu local récupéré de " + fFichier);
-    //             this.recupLocal = true;
-    //             Globals.cabinet = JSON.parse(res);
-    //         })
-    //         // If user not connected and run app for the first time
-    //         .catch((err) => {
-    //             console.log("Pas de contenu local à récupérer : " + err);
-    //             this.recupLocal = false;
-    //             return err;
-    //     });
         // // If user connected -> get informations from server and write them on local file
         // if (this.connectiviteService.testeConnectivite() ) {
         //     this.http.get<Patient>("http://www.fabriquenumerique.fr/OrthalisDemo/NativeScript/patient.json").subscribe(

@@ -41,7 +41,8 @@ export class AuthComponent implements OnInit {
         // Pour l'instant le bouton valider change de page pour featured
         this.routerExtensions.navigate(["featured"], {
             transition: {
-                name: "fade"
+                name: "slideLeft",
+                duration: 200
             }
         });
     }
