@@ -3,6 +3,7 @@ import { RouterExtensions } from "nativescript-angular/router";
 
 import { Auth } from "../services/models/auth.modele";
 import { AuthService } from "~/app/services/auth.service";
+import { DataService } from "~/app/services/data.service";
 
 @Component({
     selector: "Auth",
@@ -12,10 +13,12 @@ import { AuthService } from "~/app/services/auth.service";
 })
 export class AuthComponent implements OnInit {
 
-    formulaire: Auth;
+    formulaire: Auth = {"codePatient":"",
+                        "motDePasse":"" };
 
     constructor(private routerExtensions:RouterExtensions,
-                private authService:AuthService) {
+                private authService:AuthService,
+                private dataService:DataService) {
         // Use the component constructor to inject providers.
     }
 
@@ -24,26 +27,38 @@ export class AuthComponent implements OnInit {
     }
 
     submit() {
-        // Ajouter : [(ngModel)]="formulaire.username"
-        //           [(ngModel)]="formulaire.password"
-
-        // this.authService.loginUser(this.formulaire)
-        //     .subscribe(
-        //         res => {
-        //             console.log(res.token);
-        //         },
-        //         err => {
-        //             alert("identifiants incorrects");
-        //             console.log(err);
-        //         }
-        // );
-
-        // Pour l'instant le bouton valider change de page pour featured
-        this.routerExtensions.navigate(["featured"], {
-            transition: {
-                name: "slideLeft",
-                duration: 200
-            }
-        });
+        // // Pour l'instant le bouton valider change de page pour featured
+        // this.routerExtensions.navigate(["featured"], {
+        //     transition: {
+        //         name: "slideLeft",
+        //         duration: 200
+        //     }
+        // });
+        this.authService.loginPatient(this.formulaire)
+            .subscribe(
+                res => {
+                    if(res != ""){
+                        console.log("Combinaison codePatient/motDePasse correcte.");
+                        // Write infos in local file
+                        this.dataService.ecritInfos("Orthalis", "patient", res);
+                        // Store them in Globals
+                        this.dataService.globaliseInfos("Orthalis", "patient");
+                        // Redirect to home page
+                        this.routerExtensions.navigate(["home"], {
+                            transition: {
+                                name: "slideLeft",
+                                duration: 200
+                            }
+                        });
+                    } else {
+                        console.log("Combinaison codePatient/motDePasse incorrecte.");
+                        alert("Combinaison codePatient/motDePasse incorrecte, veuillez entrer une combinaison valide.");
+                    }
+                },
+                err => {
+                    console.log("Erreur serveur.")
+                    alert("Erreur serveur");
+                }
+            );
     }
 }

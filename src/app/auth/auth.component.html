@@ -18,7 +18,8 @@
         class="input" 
         autofocus 
         minLength="3" 
-        required 
+        required
+        [(ngModel)]="formulaire.codePatient"
     ></TextField>
     <TextField hint="Mot de passe" 
         secure="true" 
@@ -29,6 +30,7 @@
         class="input" 
         minLength="3" 
         required 
+        [(ngModel)]="formulaire.motDePasse"
     ></TextField>
 
     <Label class="br"></Label>

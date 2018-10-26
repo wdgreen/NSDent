@@ -1,19 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 
+import { Settings } from "~/app/services/settings";
+
 @Injectable()
 export class AuthService {
-
-    serveur = "http://192.168.2.70:3000";
 
     constructor(private http: HttpClient) { }
 
     loginCabinet(formulaire) {
-        return this.http.post<any>(this.serveur + "/cabinet/cabinet", formulaire);
+        return this.http.post<any>(Settings.urlCabinets, formulaire);
     }
 
     loginPatient(formulaire) {
-        return this.http.post<any>(this.serveur + "/user/login", formulaire);
+        // return this.http.post<any>(this.serveur + "/user/login", formulaire);
+        return this.http.post<any>(Settings.urlPatients, formulaire);
     }
 
     logoutUser() {
