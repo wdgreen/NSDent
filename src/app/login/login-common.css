@@ -35,3 +35,11 @@ Button {
     rotate: 180;
     bottom: 0;
 }
+
+ActivityIndicator {
+    width: 40%;
+}
+
+:disabled {
+    opacity: 0.1;
+}

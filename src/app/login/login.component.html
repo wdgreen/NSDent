@@ -1,8 +1,8 @@
-<ActionBar class="action-bar">
+<ActionBar class="action-bar" [isEnabled]="!chargement">
     <Label class="action-bar-title"></Label>
 </ActionBar>
 
-<StackLayout class="page page-content">
+<StackLayout class="page page-content" [isEnabled]="!chargement">
     <Image src="res://vaguetop" class="header"></Image>
     <Image src="res://orthalis" class="headerImg"></Image>
 
@@ -23,6 +23,8 @@
     <Button text="Valider" (tap)="submit()" class="btn btn-primary btn-rounded-lg"></Button>
 </StackLayout>
 
-<DockLayout stretchLastChild="false">
-        <Image src="res://vaguetop" class="footer" dock="bottom"></Image>
+<DockLayout stretchLastChild="false" [isEnabled]="!chargement">
+    <Image src="res://vaguetop" class="footer" dock="bottom"></Image>
 </DockLayout>
+
+<ActivityIndicator [busy]="chargement"></ActivityIndicator>

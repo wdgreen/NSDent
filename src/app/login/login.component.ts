@@ -15,12 +15,15 @@ export class LoginComponent {
 
     formulaire: Login = {"codeCabinet":""};
 
+    chargement:boolean = false;
+
     constructor(private routerExtensions:RouterExtensions,
                 private authService:AuthService,
                 private dataService:DataService) {
     }
 
     submit() {
+        this.chargement = true;
         this.authService.loginCabinet(this.formulaire)
             .subscribe(
                 res => {
@@ -39,11 +42,17 @@ export class LoginComponent {
                     } else {
                         console.log("Mauvais code cabinet.")
                         alert("Aucun code cabinet correspondant, veuillez entrer un code valide.");
+
+                        this.chargement = false;
                     }
+
+                    
                 },
                 err => {
                     console.log("Erreur serveur.")
                     alert("Erreur serveur");
+
+                    this.chargement = false;
                 }
             )
     }

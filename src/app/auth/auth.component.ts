@@ -27,38 +27,39 @@ export class AuthComponent implements OnInit {
     }
 
     submit() {
-        // // Pour l'instant le bouton valider change de page pour featured
-        // this.routerExtensions.navigate(["featured"], {
-        //     transition: {
-        //         name: "slideLeft",
-        //         duration: 200
-        //     }
-        // });
-        this.authService.loginPatient(this.formulaire)
-            .subscribe(
-                res => {
-                    if(res != ""){
-                        console.log("Combinaison codePatient/motDePasse correcte.");
-                        // Write infos in local file
-                        this.dataService.ecritInfos("Orthalis", "patient", res);
-                        // Store them in Globals
-                        this.dataService.globaliseInfos("Orthalis", "patient");
-                        // Redirect to home page
-                        this.routerExtensions.navigate(["home"], {
-                            transition: {
-                                name: "slideLeft",
-                                duration: 200
-                            }
-                        });
-                    } else {
-                        console.log("Combinaison codePatient/motDePasse incorrecte.");
-                        alert("Combinaison codePatient/motDePasse incorrecte, veuillez entrer une combinaison valide.");
-                    }
-                },
-                err => {
-                    console.log("Erreur serveur.")
-                    alert("Erreur serveur");
-                }
-            );
+        // Pour l'instant le bouton valider change de page pour featured
+        this.routerExtensions.navigate(["featured"], {
+            transition: {
+                name: "slideLeft",
+                duration: 200
+            }
+        });
+
+        // this.authService.loginPatient(this.formulaire)
+        //     .subscribe(
+        //         res => {
+        //             if(res != ""){
+        //                 console.log("Combinaison codePatient/motDePasse correcte.");
+        //                 // Write infos in local file
+        //                 this.dataService.ecritInfos("Orthalis", "patient", res);
+        //                 // Store them in Globals
+        //                 this.dataService.globaliseInfos("Orthalis", "patient");
+        //                 // Redirect to home page
+        //                 this.routerExtensions.navigate(["home"], {
+        //                     transition: {
+        //                         name: "slideLeft",
+        //                         duration: 200
+        //                     }
+        //                 });
+        //             } else {
+        //                 console.log("Combinaison codePatient/motDePasse incorrecte.");
+        //                 alert("Combinaison codePatient/motDePasse incorrecte, veuillez entrer une combinaison valide.");
+        //             }
+        //         },
+        //         err => {
+        //             console.log("Erreur serveur.")
+        //             alert("Erreur serveur");
+        //         }
+        //     );
     }
 }

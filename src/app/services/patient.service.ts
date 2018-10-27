@@ -17,7 +17,7 @@ export class PatientService {
     recupLocal: boolean = false;
 
     constructor(private http: HttpClient, private connectiviteService: ConnectiviteService) { 
-        // this.getPatient(); N'utilise plus ce service
+        this.getPatient();
     }
 
     getPatient() {
