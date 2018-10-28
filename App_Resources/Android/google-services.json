@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "299804642683",
+    "firebase_url": "https://nsdent-f09d7.firebaseio.com",
+    "project_id": "nsdent-f09d7",
+    "storage_bucket": "nsdent-f09d7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:299804642683:android:9e2fe085901e1570",
+        "android_client_info": {
+          "package_name": "org.nativescript.NSDent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "299804642683-e72mjpa81p518jjf1e2dsehdq6h9k2j5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCb7F_JQ38Nm3e5C3xbknDF4jZ8rGF1RLo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
