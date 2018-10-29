@@ -27,3 +27,35 @@ TextField {
     bottom: 0;
 }
 /* Page specific CSS ====================================================== */
+.imgcabinet{
+    background-image:url("https://pierrecastaingv.github.io/Orthalis/img/cabinet.png");
+    border-radius:12;
+    width:95%;
+    height:150;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.h2{
+    text-align: center;
+    font: size 1vw;
+    color:#fff;
+    background-color: rgba(17, 19, 19, 0.6);
+    width:90%;
+    margin-top: 125;
+}
+.logo{
+    text-align: center;
+    border-radius: 50%;
+    margin-top: -45;
+    margin-bottom: 15;
+    height: 45;
+}
+.note{
+    margin:5;
+    padding:0;
+    width: 95%;
+    height:110;
+    font: size 1vw;
+    background-color:rgba(205, 241, 41, 0.26);
+}
