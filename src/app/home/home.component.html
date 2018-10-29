@@ -1,4 +1,4 @@
-<ActionBar class="action-bar">
+<ActionBar class="action-bar" [isEnabled]="!chargement">
     <!-- 
     Use the NavigationButton as a side-drawer button in Android
     because ActionItems are shown on the right side of the ActionBar
@@ -15,7 +15,9 @@
     <Label class="action-bar-title" text="Home"></Label>
 </ActionBar>
 
-<GridLayout class="page page-content">
+<GridLayout class="page page-content" [isEnabled]="!chargement">
     <Label class="page-icon fa" text="&#xf015;"></Label>
     <Label class="page-placeholder" text="<!-- Page content goes here -->"></Label>
 </GridLayout>
+
+<ActivityIndicator [busy]="chargement"></ActivityIndicator>

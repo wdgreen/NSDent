@@ -1,0 +1,94 @@
+[
+    {
+        "patient": {
+            "codePatient": "123456",
+            "nom": "Lars",
+            "prenom": "Nick",
+            "telephones": ["0556456772", "0643455634"],
+            "dateNaissance": "1989-01-01",
+            "email": "nicky@larson.eu",
+            "relations": ["1234", "4321"]
+        },
+        "rendezVous": [
+            {
+                "codePatient": "123456",
+                "nomPraticien": "Roulette",
+                "prenomPraticien": "Jean",
+                "titre": "Dr",
+                "date": "12/10/2018",
+                "typeActe": "Contrôle appareil",
+                "message": "Rendez-vous avec le Docteur Roulette le 12 octobre à 9h.",
+                "niveauUrgence": "1"
+            },
+            {
+                "codePatient": "123456",
+                "nomPraticien": "Gourmette",
+                "prenomPraticien": "Paul",
+                "titre": "Dr",
+                "date": "22/12/2018",
+                "typeActe": "Contrôle appareil",
+                "message": "Rendez-vous le 2 Janvier à 19h.",
+                "niveauUrgence": "2"
+            }
+        ],
+        "historiqueRendezvous": [
+            {
+                "loginPatient": "123456",
+                "nomPraticien": "Roulette",
+                "prenomPraticien": "Jean",
+                "date": "20/12/2018",
+                "typeActe": "Pose d'un arc",
+                "message": "Lorem ipsum dolor sit amet"
+            },
+            {
+                "loginPatient": "764456",
+                "nomPraticien": "Highways",
+                "prenomPraticien": "Edward",
+                "date": "12/02/2019",
+                "typeActe": "Contrôle appareil",
+                "message": "dolor sit amet Lorem ipsum"
+            }
+        ],
+        "paiements": [
+            {
+                "codePatient": "123456",
+                "date": "20/12/2017",
+                "montant": "120"
+            },
+            {
+                "codePatient": "123456",
+                "date": "15/08/2017",
+                "montant": "90"
+            }
+        ],
+        "echeances": [
+            {
+                "loginPatient": "123456",
+                "date": "23/09/2018",
+                "solde": "250"
+            }
+        ],
+        "photos": [
+            {
+            "lien": "lien/vers/mon/image.jpg",
+            "description": "Sidonie"
+            },
+            {
+            "lien": "./img/dent4.png",
+            "description": "16 ans - 06/01/2017"
+            },
+            {
+            "lien": "lien/vers/mon/image.jpg",
+            "description": "16 ans - 09/07/2017"
+            },
+            {
+            "lien": "./img/dent1.jpg",
+            "description": "11 ans - 09/02/2011"
+            },
+            {
+            "lien": "./img/dent2.jpg",
+            "description": "12 ans - 09/07/2012"
+            }      
+        ]
+    }
+]

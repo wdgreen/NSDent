@@ -1,4 +1,4 @@
-<ActionBar class="action-bar">
+<ActionBar class="action-bar" [isEnabled]="!chargement">
     <!-- 
     Use the NavigationButton as a side-drawer button in Android
     because ActionItems are shown on the right side of the ActionBar
@@ -15,7 +15,7 @@
     <Label class="action-bar-title"></Label>
 </ActionBar>
 
-<ScrollView>
+<ScrollView [isEnabled]="!chargement">
     <StackLayout class="page page-content">
 
         <StackLayout *ngFor="let p of patientService.patient">
@@ -35,3 +35,5 @@
 
     </StackLayout>
 </ScrollView>
+
+<ActivityIndicator [busy]="chargement"></ActivityIndicator>

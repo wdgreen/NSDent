@@ -27,19 +27,3 @@ TextField {
     bottom: 0;
 }
 /* Page specific CSS ====================================================== */
-.headerImg {
-    width: 300;
-    height: 300;
-    margin-top: -75;
-}
-.coverImage {
-    background-image: url("res://auth");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-Button {
-    width: 40%;
-    height: 45;
-    background: #57CCC6;
-}

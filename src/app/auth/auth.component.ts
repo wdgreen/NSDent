@@ -4,6 +4,7 @@ import { RouterExtensions } from "nativescript-angular/router";
 import { Auth } from "../services/models/auth.modele";
 import { AuthService } from "~/app/services/auth.service";
 import { DataService } from "~/app/services/data.service";
+import { Globals } from "~/app/services/globals";
 
 @Component({
     selector: "Auth",
@@ -13,27 +14,34 @@ import { DataService } from "~/app/services/data.service";
 })
 export class AuthComponent implements OnInit {
 
+    chargement: boolean;
     formulaire: Auth = {"codePatient":"",
                         "motDePasse":"" };
 
     constructor(private routerExtensions:RouterExtensions,
                 private authService:AuthService,
                 private dataService:DataService) {
+        this.chargement = Globals.chargement;
         // Use the component constructor to inject providers.
     }
 
     ngOnInit() {
-        // Init your component properties here.
+        this.chargement = false;
     }
 
     submit() {
-        // Pour l'instant le bouton valider change de page pour featured
-        this.routerExtensions.navigate(["featured"], {
-            transition: {
-                name: "slideLeft",
-                duration: 200
-            }
-        });
+        this.chargement = true;
+        Globals.chargement = this.chargement;
+        setTimeout(() => {
+            // Pour l'instant le bouton valider change de page pour featured
+            this.routerExtensions.navigate(["home"], {
+                clearHistory: true,
+                transition: {
+                    name: "fade",
+                    duration: 200
+                }
+            });
+        }, 2000);
 
         // this.authService.loginPatient(this.formulaire)
         //     .subscribe(

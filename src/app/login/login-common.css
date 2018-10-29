@@ -1,3 +1,4 @@
+/* App Common CSS ======================================================= */
 ActionBar {
     background: linear-gradient(to right, #435F71, #57CCC6);
 }
@@ -6,40 +7,33 @@ ActionBar {
     margin-top: -45;
     margin-left: 0;
 }
-
+.br {
+    height: 15;
+}
+ActivityIndicator {
+    width: 40%;
+}
+:disabled {
+    opacity: 0.1;
+}
+.h1 {
+    text-align: center;
+}
+TextField {
+    width: 75%;
+}
+.footer {
+    rotate: 180;
+    bottom: 0;
+}
+/* Page specific CSS ====================================================== */
 .headerImg {
     width: 300;
     height: 300;
     margin-top: -75;
 }
-
-.h1 {
-    text-align: center;
-}
-
-.br {
-    height: 15;
-}
-
-TextField {
-    width: 75%;
-}
-
 Button {
     width: 40%;
     height: 45;
     background: #EF7926;
-}
-
-.footer {
-    rotate: 180;
-    bottom: 0;
-}
-
-ActivityIndicator {
-    width: 40%;
-}
-
-:disabled {
-    opacity: 0.1;
 }

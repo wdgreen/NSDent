@@ -1,56 +1,55 @@
 export interface Patient {
-    etatCivil: Array<EtatCivil>;
-    notifications: Array<Notifications>;
+    patient: Array<Patient>;
+    notifications: Array<RendezVous>;
     historiqueRendezVous: Array<HistoriqueRendezVous>;
     paiements: Array<Paiements>;
     echeances: Array<Echeances>;
     photos: Array<Photos>;
 }
-
-    export interface EtatCivil {
-        loginPatient: string;
+    export interface Patient {
+        codePatient: string;
         nom: string;
         prenom: string;
         telephones: Array<Telephones>;
         dateNaissances: number;
         email: string;
-        responsable: boolean;
+        relations: Array<Relations>;
     }
         export interface Telephones {
             telephone: number;
         }
-
-    export interface Notifications {
-        loginPatient: string;
+        export interface Relations {
+            codePatient: string;
+        }
+    export interface RendezVous {
+        codePatient: string;
         nomPraticien: string;
         prenomPraticien: string;
+        titre: string;
         date: number;
         typeActe: string;
         message: string;
         niveauUrgence: number;
     }
-
     export interface HistoriqueRendezVous {
-        loginPatient: string;
+        codePatient: string;
         nomPraticien: string;
         prenomPraticien: string;
+        titre: string;
         date: number;
         typeActe: string;
         message: string;
     }
-
     export interface Paiements {
-        loginPatient: string;
+        codePatient: string;
         date: number;
         montant: number;
     }
-
     export interface Echeances {
-        loginPatient: string;
+        codePatient: string;
         date: number;
         solde: number;
     }
-
     export interface Photos {
         lien: string;
         description: string;

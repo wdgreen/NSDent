@@ -1,29 +1,34 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { RouterExtensions } from "nativescript-angular/router";
 
 import { Login } from "~/app/services/models/auth.modele";
 import { AuthService } from "~/app/services/auth.service";
 import { DataService } from "~/app/services/data.service";
-
+import { Globals } from "../services/globals";
 @Component({
     selector: "Login",
     moduleId: module.id,
     templateUrl: "./login.component.html",
     styleUrls: ["./login-common.css"]
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
+    chargement: boolean;
     formulaire: Login = {"codeCabinet":""};
-
-    chargement:boolean = false;
 
     constructor(private routerExtensions:RouterExtensions,
                 private authService:AuthService,
                 private dataService:DataService) {
+        this.chargement = Globals.chargement;
     }
 
+    ngOnInit() {
+        this.chargement = false;
+    }
     submit() {
         this.chargement = true;
+        Globals.chargement = this.chargement;
+
         this.authService.loginCabinet(this.formulaire)
             .subscribe(
                 res => {
@@ -35,6 +40,7 @@ export class LoginComponent {
                         this.dataService.globaliseInfos("Orthalis", "cabinet");
                         // Redirect to user authentifcation page
                         this.routerExtensions.navigate(["auth"], {
+                            clearHistory: true,
                             transition: {
                                 name: "fade"
                             }
