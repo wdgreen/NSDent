@@ -4,6 +4,8 @@ import { RouterExtensions } from "nativescript-angular/router";
 import { DrawerTransitionBase, RadSideDrawer, SlideInOnTopTransition } from "nativescript-ui-sidedrawer";
 import { filter } from "rxjs/operators";
 import * as app from "tns-core-modules/application";
+// Used for notification system
+const firebase = require("nativescript-plugin-firebase");
 
 @Component({
     moduleId: module.id,
@@ -19,6 +21,24 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        // Used for notification system
+        firebase.init({
+            // Optionally pass in properties for database, authentication and cloud messaging,
+            // see their respective docs.
+        }).then(
+            instance => {
+                console.log("firebase.init done");
+            },
+            error => {
+                console.log(`firebase.init error: ${error}`);
+            }
+        );
+        // Return push token
+        firebase.getCurrentPushToken().then((token: string) => {
+            // may be null if not known yet
+            console.log("Current push token: " + token);
+        });
+
         this._activatedUrl = "/home";
         this._sideDrawerTransition = new SlideInOnTopTransition();
 
