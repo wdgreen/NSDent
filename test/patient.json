@@ -33,7 +33,7 @@
         ],
         "historiqueRendezvous": [
             {
-                "loginPatient": "123456",
+                "codePatient": "123456",
                 "nomPraticien": "Roulette",
                 "prenomPraticien": "Jean",
                 "date": "20/12/2018",
@@ -41,7 +41,7 @@
                 "message": "Lorem ipsum dolor sit amet"
             },
             {
-                "loginPatient": "764456",
+                "codePatient": "764456",
                 "nomPraticien": "Highways",
                 "prenomPraticien": "Edward",
                 "date": "12/02/2019",
@@ -63,7 +63,7 @@
         ],
         "echeances": [
             {
-                "loginPatient": "123456",
+                "codePatient": "123456",
                 "date": "23/09/2018",
                 "solde": "250"
             }
