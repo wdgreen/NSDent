@@ -1,94 +1,205 @@
-[
-    {
-        "patient": {
-            "codePatient": "123456",
-            "nom": "Lars",
-            "prenom": "Nick",
-            "telephones": ["0556456772", "0643455634"],
-            "dateNaissance": "1989-01-01",
-            "email": "nicky@larson.eu",
-            "relations": ["1234", "4321"]
+{
+    "result": [
+        {
+            "patient": {
+                "codePatient": "1111",
+                "nom": "Larson",
+                "prenom": "Nicky",
+                "telephones": [
+                    "0556456772",
+                    "0643455634"
+                ],
+                "dateNaissance": "1989-01-01",
+                "email": "nicky@larson.eu",
+                "relations": [
+                    "1234",
+                    "4321"
+                ]
+            },
+            "rendezVous": [
+                {
+                    "nomPraticien": "Roulette",
+                    "prenomPraticien": "Jean",
+                    "titre": "Dr",
+                    "date": "12/10/2018",
+                    "typeActe": "Contrôle appareil",
+                    "message": "Rendez-vous avec le Docteur Roulette le 12 octobre à 9h.",
+                    "niveauUrgence": "1"
+                }
+            ],
+            "historiqueRendezvous": [
+                {
+                    "nomPraticien": "Roulette",
+                    "prenomPraticien": "Jean",
+                    "date": "20/08/2018",
+                    "typeActe": "Pose d'un arc",
+                    "message": "Lorem ipsum dolor sit amet"
+                }
+            ],
+            "paiements": [
+                {
+                    "date": "05\/12\/2007",
+                    "montant": "120"
+                },
+                {
+                    "date": "15\/12\/2007",
+                    "montant": "90"
+                }
+            ],
+            "soldes": [
+                {
+                    "montant": "0"
+                }
+            ],
+            "photos": {
+                "identity": "\/kdsimages\/NICKY LARSON 00000000\/IMG_6914(2).jpg",
+                "identityThumb": "\/kdsimages\/NICKY LARSON 00000000\/IMG_6914(2)-500.jpg",
+                "paires": [
+                    {
+                        "p0": "\/kdsimages\/NICKY LARSON 00000000\/IMG_1300.JPG",
+                        "p0Thumb": "\/kdsimages\/NICKY LARSON 00000000\/IMG_1300-500.JPG"
+                    },
+                    {
+                        "p1": "\/kdsimages\/NICKY LARSON 00000000\/IMG_6914(2).jpg",
+                        "p1Thumb": "\/kdsimages\/NICKY LARSON 00000000\/IMG_6914(2)-500.jpg"
+                    },
+                    {
+                        "p2": "\/kdsimages\/NICKY LARSON 00000000\/P1.jpg",
+                        "p2Thumb": "\/kdsimages\/NICKY LARSON 00000000\/P1-500.jpg"
+                    }
+                ]
+            }
         },
-        "rendezVous": [
-            {
-                "codePatient": "123456",
-                "nomPraticien": "Roulette",
-                "prenomPraticien": "Jean",
-                "titre": "Dr",
-                "date": "12/10/2018",
-                "typeActe": "Contrôle appareil",
-                "message": "Rendez-vous avec le Docteur Roulette le 12 octobre à 9h.",
-                "niveauUrgence": "1"
+        {
+            "patient": {
+                "codePatient": "1234",
+                "nom": "Larson",
+                "prenom": "Junior",
+                "telephones": [],
+                "dateNaissance": "2006-01-01",
+                "email": "",
+                "relations": []
             },
-            {
-                "codePatient": "123456",
-                "nomPraticien": "Gourmette",
-                "prenomPraticien": "Paul",
-                "titre": "Dr",
-                "date": "22/12/2018",
-                "typeActe": "Contrôle appareil",
-                "message": "Rendez-vous le 2 Janvier à 19h.",
-                "niveauUrgence": "2"
+            "rendezVous": [
+                {
+                    "nomPraticien": "Roulette",
+                    "prenomPraticien": "Jean",
+                    "titre": "Dr",
+                    "date": "12/10/2018",
+                    "typeActe": "Contrôle appareil",
+                    "message": "Rendez-vous avec le Docteur Roulette le 12 octobre à 9h.",
+                    "niveauUrgence": "1"
+                }
+            ],
+            "historiqueRendezvous": [
+                {
+                    "nomPraticien": "Roulette",
+                    "prenomPraticien": "Jean",
+                    "date": "10/06/2018",
+                    "typeActe": "Pose d'un arc",
+                    "message": "Lorem ipsum dolor sit amet"
+                }
+            ],
+            "paiements": [
+                {
+                    "date": "05\/12\/2017",
+                    "montant": "160"
+                },
+                {
+                    "date": "15\/12\/2017",
+                    "montant": "90"
+                }
+            ],
+            "soldes": [
+                {
+                    "montant": "0"
+                }
+            ],
+            "photos": {
+                "identity": "\/kdsimages\/JUNIOR LARSON 00000000\/IMG_6914(2).jpg",
+                "identityThumb": "\/kdsimages\/JUNIOR LARSON 00000000\/IMG_6914(2)-500.jpg",
+                "paires": [
+                    {
+                        "p0": "\/kdsimages\/JUNIOR LARSON 00000000\/IMG_1300.JPG",
+                        "p0Thumb": "\/kdsimages\/JUNIOR LARSON 00000000\/IMG_1300-500.JPG"
+                    },
+                    {
+                        "p1": "\/kdsimages\/JUNIOR LARSON 00000000\/IMG_6914(2).jpg",
+                        "p1Thumb": "\/kdsimages\/JUNIOR LARSON 00000000\/IMG_6914(2)-500.jpg"
+                    },
+                    {
+                        "p2": "\/kdsimages\/JUNIOR LARSON 00000000\/P1.jpg",
+                        "p2Thumb": "\/kdsimages\/JUNIOR LARSON 00000000\/P1-500.jpg"
+                    }
+                ]
             }
-        ],
-        "historiqueRendezvous": [
-            {
-                "codePatient": "123456",
-                "nomPraticien": "Roulette",
-                "prenomPraticien": "Jean",
-                "date": "20/12/2018",
-                "typeActe": "Pose d'un arc",
-                "message": "Lorem ipsum dolor sit amet"
+        },
+        {
+            "patient": {
+                "codePatient": "4321",
+                "nom": "Larson",
+                "prenom": "Kevin",
+                "telephones": [],
+                "dateNaissance": "2010-01-01",
+                "email": "",
+                "relations": []
             },
-            {
-                "codePatient": "764456",
-                "nomPraticien": "Highways",
-                "prenomPraticien": "Edward",
-                "date": "12/02/2019",
-                "typeActe": "Contrôle appareil",
-                "message": "dolor sit amet Lorem ipsum"
+            "rendezVous": [
+                {
+                    "nomPraticien": "Roulette",
+                    "prenomPraticien": "Jean",
+                    "titre": "Dr",
+                    "date": "12/11/2018",
+                    "typeActe": "Contrôle appareil",
+                    "message": "Rendez-vous avec le Docteur Roulette le 12 octobre à 9h.",
+                    "niveauUrgence": "1"
+                }
+            ],
+            "historiqueRendezvous": [
+                {
+                    "nomPraticien": "Roulette",
+                    "prenomPraticien": "Jean",
+                    "date": "10/05/2018",
+                    "typeActe": "Pose d'un arc",
+                    "message": "Lorem ipsum dolor sit amet"
+                },
+                {
+                    "nomPraticien": "Roulette",
+                    "prenomPraticien": "Jean",
+                    "date": "10/06/2018",
+                    "typeActe": "Contrôle arc",
+                    "message": "Lorem ipsum dolor sit amet"
+                }
+            ],
+            "paiements": [
+                {
+                    "date": "12\/11\/2018",
+                    "montant": "160"
+                }
+            ],
+            "soldes": [
+                {
+                    "montant": "120"
+                }
+            ],
+            "photos": {
+                "identity": "\/kdsimages\/KEVIN LARSON 00000000\/IMG_6914(2).jpg",
+                "identityThumb": "\/kdsimages\/KEVIN LARSON 00000000\/IMG_6914(2)-500.jpg",
+                "paires": [
+                    {
+                        "p0": "\/kdsimages\/KEVIN LARSON 00000000\/IMG_1300.JPG",
+                        "p0Thumb": "\/kdsimages\/KEVIN LARSON 00000000\/IMG_1300-500.JPG"
+                    },
+                    {
+                        "p1": "\/kdsimages\/KEVIN LARSON 00000000\/IMG_6914(2).jpg",
+                        "p1Thumb": "\/kdsimages\/KEVIN LARSON 00000000\/IMG_6914(2)-500.jpg"
+                    },
+                    {
+                        "p2": "\/kdsimages\/KEVIN LARSON 00000000\/P1.jpg",
+                        "p2Thumb": "\/kdsimages\/KEVIN LARSON 00000000\/P1-500.jpg"
+                    }
+                ]
             }
-        ],
-        "paiements": [
-            {
-                "codePatient": "123456",
-                "date": "20/12/2017",
-                "montant": "120"
-            },
-            {
-                "codePatient": "123456",
-                "date": "15/08/2017",
-                "montant": "90"
-            }
-        ],
-        "echeances": [
-            {
-                "codePatient": "123456",
-                "date": "23/09/2018",
-                "solde": "250"
-            }
-        ],
-        "photos": [
-            {
-            "lien": "lien/vers/mon/image.jpg",
-            "description": "Sidonie"
-            },
-            {
-            "lien": "./img/dent4.png",
-            "description": "16 ans - 06/01/2017"
-            },
-            {
-            "lien": "lien/vers/mon/image.jpg",
-            "description": "16 ans - 09/07/2017"
-            },
-            {
-            "lien": "./img/dent1.jpg",
-            "description": "11 ans - 09/02/2011"
-            },
-            {
-            "lien": "./img/dent2.jpg",
-            "description": "12 ans - 09/07/2012"
-            }      
-        ]
-    }
-]
+        }
+    ]
+}

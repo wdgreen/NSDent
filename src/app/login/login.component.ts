@@ -5,6 +5,7 @@ import { Login } from "~/app/services/models/auth.modele";
 import { AuthService } from "~/app/services/auth.service";
 import { DataService } from "~/app/services/data.service";
 import { Globals } from "../services/globals";
+
 @Component({
     selector: "Login",
     moduleId: module.id,
@@ -14,8 +15,11 @@ import { Globals } from "../services/globals";
 export class LoginComponent implements OnInit {
 
     chargement: boolean;
-    formulaire: Login = {"codeCabinet":""};
-
+    formulaire: Login = 
+    { 
+        "codeCabinet": "" 
+    };
+    
     constructor(private routerExtensions:RouterExtensions,
                 private authService:AuthService,
                 private dataService:DataService) {
@@ -25,6 +29,7 @@ export class LoginComponent implements OnInit {
     ngOnInit() {
         this.chargement = false;
     }
+
     submit() {
         this.chargement = true;
         Globals.chargement = this.chargement;
@@ -51,8 +56,6 @@ export class LoginComponent implements OnInit {
 
                         this.chargement = false;
                     }
-
-                    
                 },
                 err => {
                     console.log("Erreur serveur.")

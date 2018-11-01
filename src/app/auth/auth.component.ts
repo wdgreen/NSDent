@@ -15,8 +15,10 @@ import { Globals } from "~/app/services/globals";
 export class AuthComponent implements OnInit {
 
     chargement: boolean;
-    formulaire: Auth = {"codePatient":"",
-                        "motDePasse":"" };
+    formulaire: Auth = 
+    {   "codePatient": "",
+        "motDePasse": "" 
+    };
 
     constructor(private routerExtensions:RouterExtensions,
                 private authService:AuthService,
@@ -32,6 +34,10 @@ export class AuthComponent implements OnInit {
     submit() {
         this.chargement = true;
         Globals.chargement = this.chargement;
+        
+        // dans le header : username & password
+        // par méthode GET : os & token
+
         setTimeout(() => {
             // Pour l'instant le bouton valider change de page pour featured
             this.routerExtensions.navigate(["home"], {
