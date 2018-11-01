@@ -37,17 +37,41 @@ export class AuthComponent implements OnInit {
         
         // dans le header : username & password
         // par méthode GET : os & token
+        
+        this.authService.loginPatient(this.formulaire)
+            .subscribe(
+                res => {
+                    console.log("Bonne combinaison codePatient/motDePasse");
+                    // Write infos in local file
+                    this.dataService.ecritInfos("Orthalis", "patient", res );
+                    // Store them in Globals
+                    this.dataService.globaliseInfos("Orthalis", "patient");
+                    // Redirect to home page
+                    this.routerExtensions.navigate(["home"], {
+                        clearHistory: true,
+                        transition: {
+                            name: "fade"
+                        }
+                    });
+                },
+                err => {
+                    console.log("Erreur serveur ou mauvaise combinaison.")
+                    alert("Mauvaise combinaison code patient / mot de passe");
 
-        setTimeout(() => {
-            // Pour l'instant le bouton valider change de page pour featured
-            this.routerExtensions.navigate(["home"], {
-                clearHistory: true,
-                transition: {
-                    name: "fade",
-                    duration: 200
+                    this.chargement = false;
                 }
-            });
-        }, 2000);
+            );
+
+        // setTimeout(() => {
+        //     // Pour l'instant le bouton valider change de page pour featured
+        //     this.routerExtensions.navigate(["home"], {
+        //         clearHistory: true,
+        //         transition: {
+        //             name: "fade",
+        //             duration: 200
+        //         }
+        //     });
+        // }, 2000);
 
         // this.authService.loginPatient(this.formulaire)
         //     .subscribe(

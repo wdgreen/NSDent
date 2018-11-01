@@ -15,14 +15,15 @@ import { Globals } from "../services/globals";
 export class LoginComponent implements OnInit {
 
     chargement: boolean;
-    formulaire: Login = 
-    { 
-        "codeCabinet": "" 
-    };
-    
-    constructor(private routerExtensions:RouterExtensions,
-                private authService:AuthService,
-                private dataService:DataService) {
+    formulaire: Login =
+        {
+            "codeCabinet": ""
+        };
+
+    constructor(private routerExtensions: RouterExtensions,
+        private authService: AuthService,
+        private dataService: DataService) {
+            
         this.chargement = Globals.chargement;
     }
 
@@ -37,10 +38,10 @@ export class LoginComponent implements OnInit {
         this.authService.loginCabinet(this.formulaire)
             .subscribe(
                 res => {
-                    if(res != ""){
+                    if (res != "") {
                         console.log("Bon code cabinet");
                         // Write infos in local file
-                        this.dataService.ecritInfos("Orthalis", "cabinet", res );
+                        this.dataService.ecritInfos("Orthalis", "cabinet", res);
                         // Store them in Globals
                         this.dataService.globaliseInfos("Orthalis", "cabinet");
                         // Redirect to user authentifcation page
