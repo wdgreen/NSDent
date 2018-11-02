@@ -3,8 +3,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 // servers Urls 
 import { Settings } from "~/app/services/settings";
 // Used for notification system
-import { isAndroid, isIOS } from "tns-core-modules/platform";
-const firebase = require("nativescript-plugin-firebase");
+import { Globals } from '~/app/services/globals';
 
 @Injectable()
 export class AuthService {
@@ -24,8 +23,7 @@ export class AuthService {
 
     // Second Login
     loginPatient(formulaire) {
-        // Define Http Body
-        this.initFirebase();
+
         // Define Http Header
         this.httpOptions = {
             headers: new HttpHeaders({
@@ -33,36 +31,10 @@ export class AuthService {
                 'username': `${formulaire.codePatient}`,
                 'password': `${formulaire.motDePasse}`
             })
-        }
+        };
+        console.log("Caractéristiques de l'appareil : " + JSON.stringify(Globals.appareil));
         // Request API
-        return this.http.post<any>(Settings.urlPatients, this.httpBody, this.httpOptions);
-    }
-    initFirebase() {
-        // Start Firebase init
-        firebase.init().then(
-            // If Firebase
-            instance => {
-                console.log("firebase.init done");
-                // Return Firebase push token
-                firebase.getCurrentPushToken().then((token: string) => {
-                    // Define Firebase token
-                    console.log("Current push token: " + token);
-                    this.httpBody.token = token;
-                    // Define OS
-                    if (isAndroid) {
-                        this.httpBody.os = "android";
-                    } else if (isIOS) {
-                        this.httpBody.os = "ios";
-                    } else {
-                        this.httpBody.os = "autre"
-                    }
-                });
-            },
-            // Else
-            error => {
-                console.log(`firebase.init error: ${error}`);
-            }
-        )
+        return this.http.post<any>(Settings.urlPatients, Globals.appareil, this.httpOptions);
     }
 
     // logoutUser() {

@@ -41,6 +41,7 @@ export class AuthComponent implements OnInit {
         this.authService.loginPatient(this.formulaire)
             .subscribe(
                 res => {
+                    // If right combinaison
                     console.log("Bonne combinaison codePatient/motDePasse");
                     // Write infos in local file
                     this.dataService.ecritInfos("Orthalis", "patient", res );
@@ -55,9 +56,10 @@ export class AuthComponent implements OnInit {
                     });
                 },
                 err => {
-                    console.log("Erreur serveur ou mauvaise combinaison.")
+                    // If wrong combinaison or server error
+                    console.log("Erreur serveur ou mauvaise combinaison.");
+                    // Stop loading
                     alert("Mauvaise combinaison code patient / mot de passe");
-
                     this.chargement = false;
                 }
             );
