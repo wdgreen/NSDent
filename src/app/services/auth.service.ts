@@ -8,10 +8,7 @@ import { Globals } from '~/app/services/globals';
 @Injectable()
 export class AuthService {
 
-    httpBody: {
-        token: string,
-        os: string
-    }
+    httpAppareil;
     httpOptions;
 
     constructor(private http: HttpClient) { }
@@ -23,7 +20,6 @@ export class AuthService {
 
     // Second Login
     loginPatient(formulaire) {
-
         // Define Http Header
         this.httpOptions = {
             headers: new HttpHeaders({
@@ -32,9 +28,8 @@ export class AuthService {
                 'password': `${formulaire.motDePasse}`
             })
         };
-        console.log("Caractéristiques de l'appareil : " + JSON.stringify(Globals.appareil));
-        // Request API
-        return this.http.post<any>(Settings.urlPatients, Globals.appareil, this.httpOptions);
+        // Request API             Url                     /OS                    /Token                Header: Username & Password
+        return this.http.get<any>(`${Settings.urlPatients}/${Globals.appareil.os}/${Globals.appareil.pushToken}/`, this.httpOptions);
     }
 
     // logoutUser() {
