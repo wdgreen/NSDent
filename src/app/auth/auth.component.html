@@ -43,6 +43,5 @@
     <DockLayout stretchLastChild="false" [isEnabled]="!chargement">
         <Image src="res://vaguetop" class="footer" dock="bottom"></Image>
     </DockLayout>
+    <ActivityIndicator [busy]="chargement"></ActivityIndicator>
 </GridLayout>
-
-<ActivityIndicator [busy]="chargement"></ActivityIndicator>
