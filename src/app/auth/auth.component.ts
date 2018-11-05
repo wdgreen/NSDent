@@ -35,45 +35,45 @@ export class AuthComponent implements OnInit {
         this.chargement = true;
         Globals.chargement = this.chargement;
         
-        // dans le header : username & password
-        // par méthode GET : os & token
+        // // dans le header : username & password
+        // // par méthode GET : os & token
         
-        this.authService.loginPatient(this.formulaire)
-            .subscribe(
-                res => {
-                    // If right combinaison
-                    console.log("Bonne combinaison codePatient/motDePasse");
-                    // Write infos in local file
-                    this.dataService.ecritInfos("Orthalis", "patient", res );
-                    // Store them in Globals
-                    this.dataService.globaliseInfos("Orthalis", "patient");
-                    // Redirect to home page
-                    this.routerExtensions.navigate(["home"], {
-                        clearHistory: true,
-                        transition: {
-                            name: "fade"
-                        }
-                    });
-                },
-                err => {
-                    // If wrong combinaison or server error
-                    console.log("Erreur serveur ou mauvaise combinaison.");
-                    // Stop loading
-                    alert("Mauvaise combinaison code patient / mot de passe");
-                    this.chargement = false;
-                }
-            );
-
-        // setTimeout(() => {
-        //     // Pour l'instant le bouton valider change de page pour featured
-        //     this.routerExtensions.navigate(["home"], {
-        //         clearHistory: true,
-        //         transition: {
-        //             name: "fade",
-        //             duration: 200
+        // this.authService.loginPatient(this.formulaire)
+        //     .subscribe(
+        //         res => {
+        //             // If right combinaison
+        //             console.log("Bonne combinaison codePatient/motDePasse");
+        //             // Write infos in local file
+        //             this.dataService.ecritInfos("Orthalis", "patient", res );
+        //             // Store them in Globals
+        //             this.dataService.globaliseInfos("Orthalis", "patient");
+        //             // Redirect to home page
+        //             this.routerExtensions.navigate(["home"], {
+        //                 clearHistory: true,
+        //                 transition: {
+        //                     name: "fade"
+        //                 }
+        //             });
+        //         },
+        //         err => {
+        //             // If wrong combinaison or server error
+        //             console.log("Erreur serveur ou mauvaise combinaison.");
+        //             // Stop loading
+        //             alert("Mauvaise combinaison code patient / mot de passe");
+        //             this.chargement = false;
         //         }
-        //     });
-        // }, 2000);
+        //     );
+
+        setTimeout(() => {
+            // Pour l'instant le bouton valider change de page pour featured
+            this.routerExtensions.navigate(["home"], {
+                clearHistory: true,
+                transition: {
+                    name: "fade",
+                    duration: 200
+                }
+            });
+        }, 2000);
 
         // this.authService.loginPatient(this.formulaire)
         //     .subscribe(
