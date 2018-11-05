@@ -2,43 +2,47 @@
     <Label class="action-bar-title"></Label>
 </ActionBar>
 
-<StackLayout class="page page-content coverImage" [isEnabled]="!chargement">
-    <Image src="res://vaguetop" class="header"></Image>
+<GridLayout>
+    <StackLayout class="page page-content coverImage" [isEnabled]="!chargement">
+        <Image src="res://vaguetop" class="header"></Image>
+    
+        <Label class="br"></Label>
+        <Label class="br"></Label>
+        <Label text="Bienvenue" class="h1"></Label>
+        <Label class="br"></Label>
+    
+        <TextField hint="Code patient" 
+            secure="false" 
+            returnKeyType="next" 
+            autocapitalizationType="none" 
+            autocorrect="false" 
+            keyboardType="url" 
+            class="input" 
+            autofocus 
+            minLength="3" 
+            required
+            [(ngModel)]="formulaire.codePatient"
+        ></TextField>
+        <TextField hint="Mot de passe" 
+            secure="true" 
+            returnKeyType="done" 
+            autocapitalizationType="none" 
+            autocorrect="false" 
+            keyboardType="url" 
+            class="input" 
+            minLength="3" 
+            required 
+            [(ngModel)]="formulaire.motDePasse"
+        ></TextField>
+    
+        <Label class="br"></Label>
+        <Label class="br"></Label>
+        <Button text="Valider" (tap)="submit()" class="btn btn-primary btn-rounded-lg"></Button>
 
-    <Label class="br"></Label>
-    <Label text="Bienvenue" class="h1"></Label>
-    <Label class="br"></Label>
-
-    <TextField hint="Code patient" 
-        secure="false" 
-        returnKeyType="next" 
-        autocapitalizationType="none" 
-        autocorrect="false" 
-        keyboardType="url" 
-        class="input" 
-        autofocus 
-        minLength="3" 
-        required
-        [(ngModel)]="formulaire.codePatient"
-    ></TextField>
-    <TextField hint="Mot de passe" 
-        secure="true" 
-        returnKeyType="done" 
-        autocapitalizationType="none" 
-        autocorrect="false" 
-        keyboardType="url" 
-        class="input" 
-        minLength="3" 
-        required 
-        [(ngModel)]="formulaire.motDePasse"
-    ></TextField>
-
-    <Label class="br"></Label>
-    <Button text="Valider" (tap)="submit()" class="btn btn-primary btn-rounded-lg"></Button>
-</StackLayout>
-
-<DockLayout stretchLastChild="false" [isEnabled]="!chargement">
-    <Image src="res://vaguetop" class="footer" dock="bottom"></Image>
-</DockLayout>
+    </StackLayout>
+    <DockLayout stretchLastChild="false" [isEnabled]="!chargement">
+        <Image src="res://vaguetop" class="footer" dock="bottom"></Image>
+    </DockLayout>
+</GridLayout>
 
 <ActivityIndicator [busy]="chargement"></ActivityIndicator>
