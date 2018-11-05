@@ -12,10 +12,81 @@
     <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
         ios.position="left">
     </ActionItem>
-    <Label class="action-bar-title" text="Search"></Label>
+    <Label class="action-bar-title" text="Dossier Médical"></Label>
 </ActionBar>
 
-<GridLayout class="page page-content">
-    <Label class="page-icon fa" text="&#xf002;"></Label>
-    <Label class="page-placeholder" text="<!-- Page content goes here -->"></Label>
-</GridLayout>
+<ScrollView orientation="vertical">
+        <StackLayout orientation="vertical">
+              <Image src="res://vaguetop" verticalAlignment="top"  horizontalAlignment="center"></Image>  
+              <Image src="res://utilisateur" verticalAlignment="top"  horizontalAlignment="center" width="100"  borderRadius="100" marginTop="-75"></Image>  
+            
+                <Label id="titre1" text="Consultez vos facture / vos RDV" verticalAlignment="center"  horizontalAlignment="center" fontSize="17" marginTop="20"></Label>
+
+                <StackLayout>
+                    <!-- >> using-ngif-html -->
+                    <GridLayout (tap)="test1()" class="list1" columns="60, 250" height="65" backgroundColor="#F9FFFF" horizontalAlignment="center" borderRadius="2" borderWidth="1" marginTop="15">  
+                        <Label id="iconec" col="1"  text="Historique des paiements"  horizontalAlignment="Left"  verticalAlignment="center" paddingLeft="10"></Label>
+                    </GridLayout>
+                    <GridLayout *ngIf="isVisible1"  class="list1" columns="310" height="100" backgroundColor="#EDF4FF" horizontalAlignment="center" borderRadius="2" borderWidth="1" borderColor="#C5E1E1" marginBottom="15">  
+                        <Label id="iconec"  text="Lorem Du hoc    : 10/10/2018 : 180 €" horizontalAlignment="center" paddingLeft="10"  paddingTop="5"></Label>
+                        <Label id="iconec"  text="Slacrem Dashomc : 18/02/2018 : 180 €" horizontalAlignment="center" paddingLeft="10"  paddingTop="25"></Label>
+                        <Label id="iconec"  text="Plyrem Duhcam   : 14/02/2018 : 180 €" horizontalAlignment="center" paddingLeft="10"  paddingTop="45"></Label>
+                        <Label id="iconec"  text="Korem Dohojoc   : 21/01/2018 : 180 €"  horizontalAlignment="center" paddingLeft="10"  paddingTop="65"></Label>
+                    </GridLayout>
+                    <GridLayout (tap)="test2()" class="list1" columns="60, 250" height="65" backgroundColor="#F9FFFF" horizontalAlignment="center" borderWidth="1"  borderRadius="2">  
+                        
+                        <Label id="iconec" col="1"  text="Historique des RDV"  horizontalAlignment="Left"  verticalAlignment="center" paddingLeft="30"></Label>
+                    </GridLayout>
+                    <GridLayout *ngIf="isVisible2"  class="list1" columns="310" height="100" backgroundColor="#EDF4FF" horizontalAlignment="center" borderRadius="2" marginBottom="15">  
+                        <Label id="iconec"  text="Baggaes      : 10/10/2018 "   horizontalAlignment="left" paddingLeft="50" paddingTop="5"></Label>
+                        <Label id="iconec"  text="Verification : 18/02/2018"   horizontalAlignment="left" paddingLeft="50"  paddingTop="25"></Label>
+                        <Label id="iconec"  text="Collage      : 14/02/2018"  horizontalAlignment="left" paddingLeft="50"  paddingTop="45"></Label>
+                        <Label id="iconec"  text="Réajustage   : 21/01/2018"  horizontalAlignment="left" paddingLeft="50"  paddingTop="65"></Label>
+               
+                    </GridLayout>
+                    
+                </StackLayout>
+
+                    <!-- << using-ngif-html -->
+               
+             <Label id="iconec" text="Consultez vos photos : " verticalAlignment="center"  horizontalAlignment="center" fontSize="20" marginTop="20"> </Label>
+         
+         <GridLayout columns="150,30,150" rows="30,auto,*"  backgroundColor="white" horizontalAlignment="center" borderRadius="2" marginTop="30">  
+
+                <GridLayout id="Bap" columns="150" rows="25" col="0"  backgroundColor="white" horizontalAlignment="center" borderRadius="2" background="lightblue">  
+                    <Label   col="0" text="Avant" verticalAlignment="center"  horizontalAlignment="center"></Label>
+                 </GridLayout>     
+
+                 <GridLayout  id="Bap" columns="150" rows="25"  col="2"  backgroundColor="white" horizontalAlignment="center" borderRadius="2" background="lightblue">  
+                    <Label  col="0" text="Après" verticalAlignment="center"  horizontalAlignment="center"></Label>
+                 </GridLayout>     
+
+                
+         </GridLayout>          
+
+     <GridLayout columns="150,*" rows="150,auto,150,auto" backgroundColor="white"  borderRadius="2" marginTop="15">       
+          
+          <GridLayout columns="auto" rows="auto,*"  col="0" row="0" backgroundColor="white" horizontalAlignment="left" borderRadius="2" marginTop="15" horizontalAlignment="left" marginLeft="20">  
+                    <Image row="0" src="~/img/dent4.png" (Tap)="imagezoom()" verticalAlignment="top"  horizontalAlignment="center" width="128" marginTop="5"></Image>  
+          </GridLayout>     
+          <Label id="iconec" row="1" col="0"  text="16 ans - 06/10/2018" verticalAlignment="center"  horizontalAlignment="left" marginLeft="15"></Label>
+
+          <GridLayout columns="auto" rows="auto,*"  col="1" row="0" backgroundColor="white" horizontalAlignment="left" borderRadius="2" marginTop="15" horizontalAlignment="right" marginRight="20">  
+            <Image row="0" src="~/img/dent1.png" verticalAlignment="top"  horizontalAlignment="right" width="128" marginTop="5"></Image>  
+          </GridLayout>     
+          <Label id="iconec" row="1" col="1" text="16 ans - 06/10/2018" verticalAlignment="center"  horizontalAlignment="right" marginRight="15"></Label>        
+
+  
+        <GridLayout columns="auto" rows="auto,*"  col="0" row="2" backgroundColor="white" horizontalAlignment="left" borderRadius="2" marginTop="15" horizontalAlignment="left" marginLeft="20">  
+            <Image row="0" src="~/img/dent4.png" verticalAlignment="top"  horizontalAlignment="center" width="128" marginTop="5"></Image>  
+        </GridLayout>     
+        <Label id="iconec" row="3"  text="16 ans - 06/10/2018" verticalAlignment="center"  horizontalAlignment="left" marginLeft="15"></Label>
+
+        <GridLayout columns="auto" rows="auto,*"  col="1" row="2" backgroundColor="white" horizontalAlignment="left" borderRadius="2" marginTop="15" horizontalAlignment="right" marginRight="20">  
+            <Image row="0" src="~/img/dent4.png" verticalAlignment="top"  horizontalAlignment="center" width="128" marginTop="5"></Image>  
+        </GridLayout>     
+        <Label id="iconec" row="3" col="1"  text="16 ans - 06/10/2018" verticalAlignment="center"  horizontalAlignment="right" marginRight="15"></Label>
+    </GridLayout>
+
+    </StackLayout>
+</ScrollView>
