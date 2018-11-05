@@ -1,0 +1,43 @@
+/* {
+ color:rgb(54, 94, 87) ; 
+}*/
+.action-bar  {
+    background: linear-gradient(to right, #435F71, #57CCC6);
+    height: 60;
+}
+#titre1 {
+    color:rgb(71, 134, 163);
+}
+.slider1 {
+    color:rgb(14, 30, 37);
+    border-color: lightblue;
+    border-width: 2px;
+    border-bottom: rgb(138, 152, 161);
+    border-bottom-width: 3;
+    border-right: rgb(124, 148, 163);
+    border-right-width: 3;
+    
+  
+}
+.slider2 {
+    color:rgb(14, 30, 37);
+    
+  
+}
+
+.list1 {
+    border-color: lightblue;
+    border-width: 1px;
+    color:  lightblue;
+}
+#iconec {
+    color: rgb(91, 136, 123);
+}
+#phrase1 {
+    color: rgb(13, 153, 163);
+    
+}
+#test {
+    border-radius:100;
+    background-color: #435F71;
+}

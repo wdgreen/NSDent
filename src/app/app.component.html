@@ -4,44 +4,56 @@ Learn more about the RadSideDrawer UI component and how it can be customized in 
 http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawer/getting-started
 -->
 <RadSideDrawer [drawerTransition]="sideDrawerTransition">
-    <GridLayout tkDrawerContent rows="auto, *" class="sidedrawer sidedrawer-left">
+    <GridLayout tkDrawerContent rows="auto,*" class="sidedrawer sidedrawer-left"  background="linear-gradient(to right, #435F71, #57CCC6)">
         <StackLayout row="0" class="sidedrawer-header" background="linear-gradient(to right, #435F71, #57CCC6)">
-            <Label class="sidedrawer-header-image fa" text="&#xf2bd;"></Label>
-            <Label class="sidedrawer-header-brand" text="User Name"></Label>
-            <Label class="footnote" text="username@mail.com"></Label>
+            <GridLayout rows="auto,*, *" columns="2*,auto,2*" marginBottom="10">
+                    <Label row="0" col="0" text="&#xf053;" (tap)="changeUtilisateur()" class="fa" fontSize="20" verticalAlignment="center"  horizontalAlignment="center"  marginTop="15" color="#AAFFFE"></Label>
+                    <Image *ngIf="isVisible" src="res://utilisateur" row="0" col="1" verticalAlignment="center"  horizontalAlignment="center" width="75"  borderRadius="100" marginTop="15"></Image>  
+                    <Image *ngIf="isVisible2" src="res://lamai" row="0" col="1" verticalAlignment="center"  horizontalAlignment="center" width="75"  borderRadius="100" marginTop="15"></Image>  
+                    <Label row="0" col="2" text="&#xf054;" (tap)="changeUtilisateur2()" class="fa" fontSize="20" verticalAlignment="center"  horizontalAlignment="center"  marginTop="15"color="#AAFFFE"></Label>
+                    <Label  *ngIf="isVisible"  row="1" col="0" colSpan="3" class="sidedrawer-header-brand" text="Eloïse Dunois"  verticalAlignment="center"  horizontalAlignment="center"></Label>
+                    <Label  *ngIf="isVisible"  row="2" col="0" colSpan="3" class="footnote" text="eloise-dunois@mail.com"  verticalAlignment="center"  horizontalAlignment="center"></Label>
+                    <Label  *ngIf="isVisible2"  row="1" col="0" colSpan="3" class="sidedrawer-header-brand" text="Carole Vannelle"  verticalAlignment="center"  horizontalAlignment="center"></Label>
+                    <Label  *ngIf="isVisible2"  row="2" col="0" colSpan="3" class="footnote" text="carole-vannelle@mail.com"  verticalAlignment="center"  horizontalAlignment="center"></Label>
+            </GridLayout>
         </StackLayout>
-    
         <ScrollView row="1">
-            <StackLayout class="sidedrawer-content">
+            <StackLayout class="sidedrawer-content" background="linear-gradient(to right, #435F71, #57CCC6)" marginTop="10">
+                <StackLayout class="hr-light" backgroundColor="rgba(10,10,10,0.1)"></StackLayout>  
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/home')" (tap)="onNavItemTap('/home')">
-                    <Label col="0" text="&#xf015;" class="fa"></Label>
-                    <Label col="1" text="Accueil" class="p-r-10"></Label>
+                    <Label col="0" text="&#xf015;" class="fa" fontSize="20" color="#AAFFFE" ></Label>
+                    <Label col="1" text="Home" class="p-r-10" fontSize="20" color="#AAFFFE"></Label>
                 </GridLayout>
 
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/browse')" (tap)="onNavItemTap('/browse')">
-                    <Label col="0" text="&#xf1ea;" class="fa"></Label>
-                    <Label col="1" text="Browse" class="p-r-10"></Label>
+                    <Label col="0" text="&#xf1ea;" class="fa" fontSize="20" color="#AAFFFE" ></Label>
+                    <Label col="1" text="Cabinet" class="p-r-10" color="white" fontSize="20" color="#AAFFFE"></Label>
                 </GridLayout>
 
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/search')" (tap)="onNavItemTap('/search')">
-                    <Label col="0" text="&#xf002;" class="fa"></Label>
-                    <Label col="1" text="Search" class="p-r-10"></Label>
+                    <Label col="0" text="&#xf002;" class="fa"  fontSize="20" color="#AAFFFE" ></Label>
+                    <Label col="1" text="Dossier médical" class="p-r-10" fontSize="20" color="#AAFFFE"></Label>
                 </GridLayout>
 
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/featured')" (tap)="onNavItemTap('/featured')">
-                    <Label col="0" text="&#xf2bd;" class="fa"></Label>
-                    <Label col="1" text="Profil" class="p-r-10"></Label>
+                    <Label col="0" text="&#xf2bd;" class="fa"  fontSize="20" color="#AAFFFE" ></Label>
+                    <Label col="1" text="Profil" class="p-r-10"  fontSize="20" color="#AAFFFE" ></Label>
                 </GridLayout>
     
-                <StackLayout class="hr-light"></StackLayout>
-
-                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/settings')" (tap)="onNavItemTap('/settings')">
-                    <Label col="0" text="&#xf013;" class="fa"></Label>
-                    <Label col="1" text="Paramètres" class="p-r-10"></Label>
+                <GridLayout columns="auto, *"  class="sidedrawer-list-item" [class.selected]="isComponentSelected('/settings')" (tap)="onNavItemTap('/settings')">
+                    <Label col="0" text="&#xf013;" class="fa" fontSize="24" color="#77F4F0"></Label>
+                    <Label col="1" text="Paramètres" class="p-r-10" fontSize="20"  color="#AAFFFE"></Label>
                 </GridLayout>
+                <GridLayout columns="auto, *"  class="sidedrawer-list-item" marginLeft="20" marginTop="180">
+                    <Label col="1" text="ORTHALIS" class="p-r-10" fontSize="40" color="rgba(200,200,200,0.2)"></Label>
+                </GridLayout>
+                <GridLayout columns="auto, *"  class="sidedrawer-list-item" [class.selected]="isComponentSelected('/home')" (tap)="onNavItemTap('/home')" marginTop="0">
+                    <Label col="0" text="&#xf013;" class="fa" fontSize="24" color="rgba(200,200,200,0.3)"></Label>
+                    <Label col="1" text="Chat" class="p-r-10" fontSize="20" color="rgba(200,200,200,0.3)"></Label>
+                </GridLayout>
+                
             </StackLayout>
         </ScrollView>
     </GridLayout>
-
     <page-router-outlet tkMainContent class="page page-content"></page-router-outlet>
 </RadSideDrawer>

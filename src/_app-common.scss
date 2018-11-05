@@ -31,9 +31,9 @@ ActionBar .action-bar-title {
 $sidedrawer-header-image-size: 60;
 $sidedrawer-header-image-offset-top: 20;
 $sidedrawer-header-image-offset-bottom: 5;
-$sidedrawer-list-item-offset-left: 15;
-$sidedrawer-list-icon-offset: 10;
-$sidedrawer-list-icon-size: 20;
+$sidedrawer-list-item-offset-left: 20;
+$sidedrawer-list-icon-offset: 20;
+$sidedrawer-list-icon-size: 40;
 
 .sidedrawer {
     &.sidedrawer-left {
@@ -65,9 +65,9 @@ $sidedrawer-list-icon-size: 20;
     .sidedrawer-content {
         background-color: $side-drawer-background;
 
-        $sidedrawer-list-item-offset-left: 15;
-        $sidedrawer-list-icon-offset: 10;
-        $sidedrawer-list-icon-size: 20;
+        $sidedrawer-list-item-offset-left: 25;
+        $sidedrawer-list-icon-offset: 20; //10
+        $sidedrawer-list-icon-size: 40; //20
 
         .sidedrawer-list-item {
             padding-left: $sidedrawer-list-item-offset-left;
@@ -80,9 +80,9 @@ $sidedrawer-list-icon-size: 20;
                 margin-right: $sidedrawer-list-icon-offset;
             }
             &.selected {
-                background-color: $item-active-background;
+                background-color: $warning-dark;//$item-active-background;
                 Label {
-                    color: $item-active-color;
+                    color: $background-light;//$item-active-color;
                 }
             }
         }

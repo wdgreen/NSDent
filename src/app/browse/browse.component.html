@@ -12,10 +12,113 @@
     <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
         ios.position="left">
     </ActionItem>
-    <Label class="action-bar-title" text="Browse"></Label>
+    <Label class="action-bar-title" text="Cabinet"></Label>
 </ActionBar>
+<ScrollView orientation="vertical">
+<StackLayout orientation="vertical" (Loaded)="Loaded($event)">
+        
+    <AbsoluteLayout #AbLy width="95%" height="20%" clipToBounds="true" backgroundColor="LightGray" (tap)="FadeSlider(AbLy)">
+        <Image id="view" src="res://cabinet" width="100%"></Image>
+    </AbsoluteLayout>
+    <GridLayout tkExampleTitle tkToggleNavButton>
+        <RadListView [items]="dataItems" (Loaded)="Loaded($event)">
+            <ng-template tkListItemTemplate let-item="item">
+                <StackLayout orientation="vertical" row="230" >
+                    <GridLayout  #GrLy2 id="view1" row="0" rowSpan="3" rows="75,80,75" colummns="*,*" [backgroundColor]="item.color"  borderColor="lightblue">
+                                <Image row="0" col="0" [src]="item.image" height="75"  verticalAlignment="Top"  horizontalAlignment="left" ></Image>
+                                <Label row="0" col="0" text="&#xf055;" (tap)="infoDoc2(GrLy)" class="fa" fontSize="22"  verticalAlignment="Top"  horizontalAlignment="right" marginRight="15" color="Blue" marginTop="20"  ></Label>
+                                <Label #label row="1" col="0" class="nameLabel" text="Interne Hopitaux: " [backgroundColor]="item.color" [width]="item.size" verticalAlignment="top" horizontalAlignment="center" ></Label>
+                                <Label row="2" col="0"   class="nameLabel" [text]="item.description" [backgroundColor]="item.color"  [width]="item.size" verticalAlignment="top" horizontalAlignment="center"  ></Label>
+                    </GridLayout>
+                    <GridLayout #GrLy id="view" name="tata" rows="150,40,40" colummns="*,*"  [backgroundColor]="item.color" borderColor="lightblue" borderWidth="1" marginTop="-230">
+                                <Image row="0" colSpan="2" [src]="item.image" height="150"></Image>
+                                <Label #label row="1" col="0" class="nameLabel" text="tata" [backgroundColor]="item.color" [width]="item.size" verticalAlignment="Bottom" horizontalAlignment="center" marginLeft="5" ></Label>
+                                <Label row="1" col="1" text="&#xf055;"  class="fa" fontSize="22" (tap)="infoDoc(GrLy)" verticalAlignment="Top"  horizontalAlignment="right" marginRight="15" color="Blue" marginTop="20"  ></Label>
+                            <Label row="2" colSpan="2"  class="nameLabel" [text]="item.description" [backgroundColor]="item.color"  [width]="item.size" verticalAlignment="center" horizontalAlignment="center" marginLeft="5" ></Label>
+                    </GridLayout>
+                </StackLayout>
+            </ng-template>
+            <ListViewLinearLayout tkListViewLayout scrollDirection="Horizontal"></ListViewLinearLayout>
+        </RadListView>
+    </GridLayout>
 
-<GridLayout class="page page-content">
-    <Label class="page-icon fa" text="&#xf1ea;"></Label>
-    <Label class="page-placeholder" text="<!-- Page content goes here -->"></Label>
-</GridLayout>
+    <AbsoluteLayout top="58%">
+    
+            <GridLayout  backgroundColor="white" top="10%" left="65%" >  
+                <Label id="titre1" text="Notre Cabinet tointoin" fontSize="22"></Label>
+            </GridLayout> 
+
+            <StackLayout top="45%" left="22%">
+                <!-- >> using-ngif-html -->
+                <GridLayout (tap)="test1()" class="list1" columns="60, 250" height="65" backgroundColor="white" horizontalAlignment="center" borderBottom="2" borderRadius="2" marginBottom="0" borderWidth="1" marginTop="15">  
+                    <GridLayout borderRadius="100" width="50" height="50" backgroundColor="#4DB6AC">  
+                        <Label col="0" text="&#xf041;" class="fa" fontSize="32" color="white"  horizontalAlignment="center" verticalAlignment="center"></Label>
+                    </GridLayout>
+                    <Label id="iconec" col="1"  text="Adresse: 25 Ave dunois"  horizontalAlignment="Left"  verticalAlignment="center" paddingLeft="10"></Label>
+                </GridLayout>
+                <GridLayout *ngIf="isVisible1"  class="list1" columns="310" height="100" backgroundColor="white" horizontalAlignment="center" borderRadius="2" marginBottom="15">  
+                    <Label id="iconec"  text="Lorem Du hoc    : 10/10/2018 : 180 €" horizontalAlignment="center" paddingLeft="10"  paddingTop="5"></Label>
+                    <Label id="iconec"  text="Slacrem Dashomc : 18/02/2018 : 180 €" horizontalAlignment="center" paddingLeft="10"  paddingTop="25"></Label>
+                    <Label id="iconec"  text="Plyrem Duhcam   : 14/02/2018 : 180 €" horizontalAlignment="center" paddingLeft="10"  paddingTop="45"></Label>
+                    <Label id="iconec"  text="Korem Dohojoc   : 21/01/2018 : 180 €"  horizontalAlignment="center" paddingLeft="10"  paddingTop="65"></Label>
+                </GridLayout>
+
+                <GridLayout (tap)="test2()" class="list1" columns="60, 250" height="65" backgroundColor="white" horizontalAlignment="center" borderBottom="2" borderRadius="2" marginBottom="1"  borderWidth="1" >  
+                    <GridLayout borderRadius="100" width="50" height="50" backgroundColor="#4DB6AC">  
+                        <Label col="0" text="&#xf095;" class="fa" fontSize="32" color="white"  horizontalAlignment="center" verticalAlignment="center"></Label>
+                    </GridLayout>
+                    <Label id="iconec" col="1"  text="Tel Cabinet: 06.12.36.54.58"  horizontalAlignment="left"  verticalAlignment="center" paddingLeft="10"></Label>
+                </GridLayout>
+                <GridLayout *ngIf="isVisible2"  class="list1" columns="310" height="100" backgroundColor="white" horizontalAlignment="center" borderRadius="2" marginBottom="15">  
+                    <Label id="iconec"  text="Lorem Du hoc    : 10/10/2018 : 180 €" horizontalAlignment="center" paddingLeft="10"  paddingTop="5"></Label>
+                    <Label id="iconec"  text="Slacrem Dashomc : 18/02/2018 : 180 €" horizontalAlignment="center" paddingLeft="10"  paddingTop="25"></Label>
+                    <Label id="iconec"  text="Plyrem Duhcam   : 14/02/2018 : 180 €" horizontalAlignment="center" paddingLeft="10"  paddingTop="45"></Label>
+                    <Label id="iconec"  text="Korem Dohojoc   : 21/01/2018 : 180 €"  horizontalAlignment="center" paddingLeft="10"  paddingTop="65"></Label>
+                </GridLayout>
+                <GridLayout (tap)="test3()" class="list1" columns="60, 250" height="65" backgroundColor="white" horizontalAlignment="center" borderBottom="2" borderRadius="2" marginBottom="1"  borderWidth="1" >  
+                        <GridLayout borderRadius="100" width="50" height="50" backgroundColor="#FF7043">  
+                                <Label col="0" text="&#xf1fa;" class="fa" fontSize="32" color="white"  horizontalAlignment="center" verticalAlignment="center"></Label>
+                        </GridLayout>
+                    <Label id="iconec" col="1"  text="e-mail: dunois@gmail.com"  horizontalAlignment="left"  verticalAlignment="center" paddingLeft="10"></Label>
+                </GridLayout>
+                <GridLayout *ngIf="isVisible3"  class="list1" columns="310" height="100" width="290" backgroundColor="white" horizontalAlignment="center" borderRadius="2" marginBottom="15">  
+                    <Label id="iconec"  text="Lorem Du hoc    : 10/10/2018 : 180 €" horizontalAlignment="center" paddingLeft="10"  paddingTop="5"></Label>
+                    <Label id="iconec"  text="Slacrem Dashomc : 18/02/2018 : 180 €" horizontalAlignment="center" paddingLeft="10"  paddingTop="25"></Label>
+                    <Label id="iconec"  text="Plyrem Duhcam   : 14/02/2018 : 180 €" horizontalAlignment="center" paddingLeft="10"  paddingTop="45"></Label>
+                    <Label id="iconec"  text="Korem Dohojoc   : 21/01/2018 : 180 €"  horizontalAlignment="center" paddingLeft="10"  paddingTop="65"></Label>
+                </GridLayout>
+                <GridLayout (tap)="test4()" class="list1" columns="60, 250" height="65" backgroundColor="white" horizontalAlignment="center" borderRadius="2" borderBottomWidth="1"marginBottom="0"  borderWidth="1" >  
+                        <GridLayout borderRadius="100" width="50" height="50" backgroundColor="#F44336">  
+                                <Label col="0" text="&#xf017;" class="fa" fontSize="32" color="white"  horizontalAlignment="center" verticalAlignment="center"></Label>
+                        </GridLayout>
+                    <Label id="iconec" col="1"  text="Horaire: Lundi 10 / 19 h"  horizontalAlignment="Left"  verticalAlignment="center" paddingLeft="10"></Label>
+                </GridLayout>
+                <GridLayout *ngIf="isVisible4"  class="list1" columns="310" height="100" backgroundColor="white" horizontalAlignment="center" borderRadius="2" marginBottom="15"  borderWidth="1" >  
+                    <Label id="iconec"  text="Mardi    : 10/10/2018 : 180 €" horizontalAlignment="left" paddingLeft="10"  paddingTop="5"></Label>
+                    <Label id="iconec"  text="Mercredi : 18/02/2018 : 180 €" horizontalAlignment="left" paddingLeft="10"  paddingTop="25"></Label>
+                    <Label id="iconec"  text="Jeudi   : 14/02/2018 : 180 €" horizontalAlignment="left" paddingLeft="10"  paddingTop="45"></Label>
+                    <Label id="iconec"  text="Vendredi   : 21/01/2018 : 180 €"  horizontalAlignment="left" paddingLeft="10"  paddingTop="65"></Label>
+                </GridLayout>
+
+                <GridLayout class="list1" columns="310" rows="20,*,* " height="300" backgroundColor="lightBlue" horizontalAlignment="center" borderRadius="2" marginTop="50" marginBottom="50">  
+                        <Label id="iconec" row="1" text="GoogleMaps : GPS : 140° ; 452° " color="black" backgroundColor="white" verticalAlignment="center"  horizontalAlignment="center"></Label>
+                        
+               </GridLayout> 
+
+            </StackLayout>
+
+
+
+
+    </AbsoluteLayout>
+
+</StackLayout>
+</ScrollView>
+    <!-- 
+        Ajout
+    -->
+    
+    <!-- 
+        Ajout
+    -->
+

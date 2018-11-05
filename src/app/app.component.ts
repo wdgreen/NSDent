@@ -17,6 +17,9 @@ export class AppComponent implements OnInit {
     private _activatedUrl: string;
     private _sideDrawerTransition: DrawerTransitionBase;
 
+    public isVisible: boolean = true;    // pour passer d'un utilisateur à l'autre
+    public isVisible2: boolean = false;    // pour passer d'un utilisateur à l'autre
+
     constructor(private router: Router, private routerExtensions: RouterExtensions) {
         // Use the component constructor to inject services.
     }
@@ -84,5 +87,28 @@ export class AppComponent implements OnInit {
 
         const sideDrawer = <RadSideDrawer>app.getRootView();
         sideDrawer.closeDrawer();
+    }
+
+    /* Pour changer d'utilisateur*/
+    changeUtilisateur(): void  {
+        if (this.isVisible) {
+                this.isVisible = false;
+                this.isVisible2 =true;
+            } else  {
+                this.isVisible = true;
+                this.isVisible2 =false;
+            }
+        
+    }
+    /* Pour changer d'utilisateur*/
+    changeUtilisateur2(): void  {
+        if (this.isVisible2) {
+                this.isVisible2 =false;
+                this.isVisible = true;
+            } else  {
+                this.isVisible2 =true;
+                this.isVisible = false;
+            }
+        
     }
 }
