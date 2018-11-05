@@ -4,9 +4,9 @@ import { RouterExtensions } from "nativescript-angular/router";
 import { DrawerTransitionBase, RadSideDrawer, SlideInOnTopTransition } from "nativescript-ui-sidedrawer";
 import { filter } from "rxjs/operators";
 import * as app from "tns-core-modules/application";
-// Firebase push notification
-const firebase = require("nativescript-plugin-firebase");
-import { Globals } from "~/app/services/globals";
+// // Firebase push notification
+// const firebase = require("nativescript-plugin-firebase");
+// import { Globals } from "~/app/services/globals";
 
 @Component({
     moduleId: module.id,
@@ -22,42 +22,42 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        // Used for notification system
-        console.log("application lancée =======================================");
-        firebase.init({
-            showNotificationsWhenInForeground: true,
-            // onPushTokenReceivedCallback: (token) => {
-            //     console.log("Firebase push token: " + token);
-            //     Globals.pushToken = token;
-            // },
-            onMessageReceivedCallback: (message) => {
-                console.log(`Title: ${message.title}`);
-                console.log(`Body: ${message.body}`);
-                // if your server passed a custom property called 'foo', then do this:
-                // console.log(`Value of 'foo': ${message.data.foo}`);
-            }
-        }).then(
-            instance => {
-                firebase.getCurrentPushToken().then((token: string) => {
-                    // Define Appareil.OS
-                    if (app.android) {
-                        Globals.appareil.os = "android";
-                    } else if (app.ios) {
-                        Globals.appareil.os = "ios";
-                    } else {
-                        Globals.appareil.os = "autre"
-                    };
-                    // Define Appareil.PushToken
-                    Globals.appareil.pushToken = token;
-                    console.log("firebase.init done");
-                    console.log("OS: " + Globals.appareil.os);
-                    console.log("pushToken: " + Globals.appareil.pushToken);
-                });
-            },
-            error => {
-                console.log(`firebase.init error: ${error}`);
-            }
-        );
+        // // Used for notification system
+        // console.log("application lancée =======================================");
+        // firebase.init({
+        //     showNotificationsWhenInForeground: true,
+        //     // onPushTokenReceivedCallback: (token) => {
+        //     //     console.log("Firebase push token: " + token);
+        //     //     Globals.pushToken = token;
+        //     // },
+        //     onMessageReceivedCallback: (message) => {
+        //         console.log(`Title: ${message.title}`);
+        //         console.log(`Body: ${message.body}`);
+        //         // if your server passed a custom property called 'foo', then do this:
+        //         // console.log(`Value of 'foo': ${message.data.foo}`);
+        //     }
+        // }).then(
+        //     instance => {
+        //         firebase.getCurrentPushToken().then((token: string) => {
+        //             // Define Appareil.OS
+        //             if (app.android) {
+        //                 Globals.appareil.os = "android";
+        //             } else if (app.ios) {
+        //                 Globals.appareil.os = "ios";
+        //             } else {
+        //                 Globals.appareil.os = "autre"
+        //             };
+        //             // Define Appareil.PushToken
+        //             Globals.appareil.pushToken = token;
+        //             console.log("firebase.init done");
+        //             console.log("OS: " + Globals.appareil.os);
+        //             console.log("pushToken: " + Globals.appareil.pushToken);
+        //         });
+        //     },
+        //     error => {
+        //         console.log(`firebase.init error: ${error}`);
+        //     }
+        // );
         
         this._activatedUrl = "/home";
         this._sideDrawerTransition = new SlideInOnTopTransition();
