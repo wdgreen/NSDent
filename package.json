@@ -24,6 +24,7 @@
     "@angular/platform-browser": "~6.1.0",
     "@angular/platform-browser-dynamic": "~6.1.0",
     "@angular/router": "~6.1.0",
+    "base-64": "^0.1.0",
     "nativescript-angular": "~6.1.0",
     "nativescript-plugin-firebase": "^7.3.0",
     "nativescript-theme-core": "~1.0.4",
@@ -31,6 +32,7 @@
     "reflect-metadata": "~0.1.10",
     "rxjs": "~6.2.0",
     "tns-core-modules": "~4.2.0",
+    "utf8": "^3.0.0",
     "zone.js": "~0.8.18"
   },
   "devDependencies": {

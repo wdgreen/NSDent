@@ -42,7 +42,7 @@ export class AuthComponent implements OnInit {
             .subscribe(
                 res => {
                     // If right combinaison
-                    console.log("Bonne combinaison codePatient/motDePasse");
+                    console.log("Bonne combinaison codePatient/motDePasse" + res);
                     // Write infos in local file
                     this.dataService.ecritInfos("Orthalis", "patient", res );
                     // Store them in Globals
