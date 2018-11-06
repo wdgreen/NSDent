@@ -15,25 +15,29 @@
     <Label class="action-bar-title"></Label>
 </ActionBar>
 
-<ScrollView [isEnabled]="!chargement">
-    <StackLayout class="page page-content">
+<GridLayout>
 
-        <StackLayout *ngFor="let p of patientService.patient">
-            <Image src="res://vaguetop" class="header"></Image>
-            <Image [src]="p.photos[0].lien" class="imgProfil"></Image>
-            <Label class="br"></Label>
-            <Label class="h1" [text]="p.etatCivil.prenom"></Label>
-            <Label class="br"></Label>
-            <StackLayout>
-                <TextField hint="Prénom" [text]="p.etatCivil.prenom" editable="false"></TextField>
-                <TextField hint="Nom" [text]="p.etatCivil.nom" editable="false"></TextField>
-                <TextField hint="Téléphone" [text]="p.etatCivil.telephones[0]" editable="false"></TextField>
-                <TextField hint="Mobile" [text]="p.etatCivil.telephones[1]" editable="false"></TextField>
-                <TextField hint="Email" [text]="p.etatCivil.email" editable="false"></TextField>
+    <ScrollView>
+        <StackLayout class="page page-content">
+    
+            <StackLayout *ngFor="let p of patientService.patient">
+                <Image src="res://vaguetop" class="header"></Image>
+                <Image [src]="p.photos[0].lien" class="imgProfil"></Image>
+                <Label class="br"></Label>
+                <Label class="h1" [text]="p.etatCivil.prenom"></Label>
+                <Label class="br"></Label>
+                <StackLayout>
+                    <TextField hint="Prénom" [text]="p.etatCivil.prenom" editable="false"></TextField>
+                    <TextField hint="Nom" [text]="p.etatCivil.nom" editable="false"></TextField>
+                    <TextField hint="Téléphone" [text]="p.etatCivil.telephones[0]" editable="false"></TextField>
+                    <TextField hint="Mobile" [text]="p.etatCivil.telephones[1]" editable="false"></TextField>
+                    <TextField hint="Email" [text]="p.etatCivil.email" editable="false"></TextField>
+                </StackLayout>
             </StackLayout>
+    
         </StackLayout>
+    </ScrollView>
+    
+</GridLayout>
 
-    </StackLayout>
-</ScrollView>
 
-<ActivityIndicator [busy]="chargement"></ActivityIndicator>

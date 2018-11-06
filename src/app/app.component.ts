@@ -7,6 +7,7 @@ import * as app from "tns-core-modules/application";
 // Firebase push notification
 const firebase = require("nativescript-plugin-firebase");
 import { Globals } from "~/app/services/globals";
+import { ConnectiviteService } from "./services/connectivite.service"
 
 @Component({
     moduleId: module.id,
@@ -19,49 +20,50 @@ export class AppComponent implements OnInit {
 
     public isVisible: boolean = true;    // pour passer d'un utilisateur à l'autre
     public isVisible2: boolean = false;    // pour passer d'un utilisateur à l'autre
-
-    constructor(private router: Router, private routerExtensions: RouterExtensions) {
-        // Use the component constructor to inject services.
-    }
+    
+    constructor(private router: Router, 
+                private routerExtensions: RouterExtensions,
+                // Used for notification system
+                private connectiviteService: ConnectiviteService) { }
 
     ngOnInit(): void {
-        // // Used for notification system
-        // console.log("application lancée =======================================");
-        // firebase.init({
-        //     showNotificationsWhenInForeground: true,
-        //     // onPushTokenReceivedCallback: (token) => {
-        //     //     console.log("Firebase push token: " + token);
-        //     //     Globals.pushToken = token;
-        //     // },
-        //     onMessageReceivedCallback: (message) => {
-        //         console.log(`Title: ${message.title}`);
-        //         console.log(`Body: ${message.body}`);
-        //         // if your server passed a custom property called 'foo', then do this:
-        //         // console.log(`Value of 'foo': ${message.data.foo}`);
-        //     }
-        // }).then(
-        //     instance => {
-        //         firebase.getCurrentPushToken().then((token: string) => {
-        //             // Define Appareil.OS
-        //             if (app.android) {
-        //                 Globals.appareil.os = "android";
-        //             } else if (app.ios) {
-        //                 Globals.appareil.os = "ios";
-        //             } else {
-        //                 Globals.appareil.os = "autre"
-        //             };
-        //             // Define Appareil.PushToken
-        //             Globals.appareil.pushToken = token;
-        //             console.log("firebase.init done");
-        //             console.log("OS: " + Globals.appareil.os);
-        //             console.log("pushToken: " + Globals.appareil.pushToken);
-        //         });
-        //     },
-        //     error => {
-        //         console.log(`firebase.init error: ${error}`);
-        //     }
-        // );
-        
+        console.log("application lancée =======================================");
+        // If connection, initialize Firebase
+        if (this.connectiviteService.testeConnectivite()) {
+            firebase.init({
+                showNotificationsWhenInForeground: true,
+                onMessageReceivedCallback: (message) => {
+                    console.log(`Notification reçue : Title = ${message.title}, Body = ${message.body}`);
+                    // if your server passed a custom property called 'foo', then do this:
+                    // console.log(`Value of 'foo': ${message.data.foo}`);
+                }
+            }).then(
+                instance => {
+                    firebase.getCurrentPushToken().then((token: string) => {
+                        // Define Appareil.OS
+                        if (app.android) {
+                            Globals.appareil.os = "android";
+                        } else if (app.ios) {
+                            Globals.appareil.os = "ios";
+                        } else {
+                            Globals.appareil.os = "autre"
+                        };
+                        // Define Appareil.PushToken
+                        Globals.appareil.pushToken = token;
+                        console.log("firebase.init done");
+                        console.log("OS: " + Globals.appareil.os);
+                        console.log("pushToken: " + Globals.appareil.pushToken);
+                    });
+                },
+                error => {
+                    console.log(`firebase.init error: ${error}`);
+                }
+            );
+        // If no connection, do nothing and continue
+        } else {
+            console.log('Hors ligne : Pas de Firebase :(');
+        }
+
         this._activatedUrl = "/home";
         this._sideDrawerTransition = new SlideInOnTopTransition();
 

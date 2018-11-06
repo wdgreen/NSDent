@@ -4,7 +4,7 @@ import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { SessionGuard } from "~/app/services/session.guard";
 
 const routes: Routes = [
-    { path: "", redirectTo: "/browse", pathMatch: "full" },
+    { path: "", redirectTo: "/login", pathMatch: "full" },
     { path: "login", loadChildren: "~/app/login/login.module#LoginModule", canActivate:[SessionGuard] },
     { path: "auth", loadChildren: "~/app/auth/auth.module#AuthModule" },
     { path: "home", loadChildren: "~/app/home/home.module#HomeModule" },
@@ -14,7 +14,6 @@ const routes: Routes = [
     { path: "settings", loadChildren: "~/app/settings/settings.module#SettingsModule" },
     { path: "camera", loadChildren: "~/app/camera/camera.module#CameraModule" },
     { path: "chat", loadChildren: "~/app/chat/chat.module#ChatModule" }
-    
 ];
 
 @NgModule({
