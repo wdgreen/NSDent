@@ -13,6 +13,7 @@ import { AuthService } from "~/app/services/auth.service";
 import { DataService } from "~/app/services/data.service";
 // Guards
 import { SessionGuard } from "~/app/services/session.guard";
+import { ModalViewComponent } from './modal-view/modal-view.component';
 
 @NgModule({
     bootstrap: [
@@ -25,7 +26,8 @@ import { SessionGuard } from "~/app/services/session.guard";
         NativeScriptHttpClientModule
     ],
     declarations: [
-        AppComponent
+        AppComponent,
+        ModalViewComponent
     ],
     providers: [
         ConnectiviteService,
@@ -36,6 +38,7 @@ import { SessionGuard } from "~/app/services/session.guard";
     ],
     schemas: [
         NO_ERRORS_SCHEMA
-    ]
+    ],
+    entryComponents: [ModalViewComponent]
 })
 export class AppModule { }

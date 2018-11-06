@@ -67,23 +67,23 @@
      <GridLayout columns="150,*" rows="150,auto,150,auto" backgroundColor="white"  borderRadius="2" marginTop="15">       
           
           <GridLayout columns="auto" rows="auto,*"  col="0" row="0" backgroundColor="white" horizontalAlignment="left" borderRadius="2" marginTop="15" horizontalAlignment="left" marginLeft="20">  
-                    <Image row="0" src="~/img/dent4.png" (Tap)="imagezoom()" verticalAlignment="top"  horizontalAlignment="center" width="128" marginTop="5"></Image>  
+                    <Image row="0" #Img [src]="LienImage[0]" (tap)="zoom(Img,LienImage[0])" verticalAlignment="top"  horizontalAlignment="center" width="128" marginTop="5"></Image>  
           </GridLayout>     
           <Label id="iconec" row="1" col="0"  text="16 ans - 06/10/2018" verticalAlignment="center"  horizontalAlignment="left" marginLeft="15"></Label>
 
           <GridLayout columns="auto" rows="auto,*"  col="1" row="0" backgroundColor="white" horizontalAlignment="left" borderRadius="2" marginTop="15" horizontalAlignment="right" marginRight="20">  
-            <Image row="0" src="~/img/dent1.png" verticalAlignment="top"  horizontalAlignment="right" width="128" marginTop="5"></Image>  
+            <Image row="0"  #Img [src]="LienImage[1]" (tap)="zoom(Img,LienImage[1])"  verticalAlignment="top"  horizontalAlignment="right" width="128" marginTop="5"></Image>  
           </GridLayout>     
           <Label id="iconec" row="1" col="1" text="16 ans - 06/10/2018" verticalAlignment="center"  horizontalAlignment="right" marginRight="15"></Label>        
 
   
         <GridLayout columns="auto" rows="auto,*"  col="0" row="2" backgroundColor="white" horizontalAlignment="left" borderRadius="2" marginTop="15" horizontalAlignment="left" marginLeft="20">  
-            <Image row="0" src="~/img/dent4.png" verticalAlignment="top"  horizontalAlignment="center" width="128" marginTop="5"></Image>  
+            <Image row="0"  #Img [src]="LienImage[2]" (tap)="zoom(Img,LienImage[2])" verticalAlignment="top"  horizontalAlignment="center" width="128" marginTop="5"></Image>  
         </GridLayout>     
         <Label id="iconec" row="3"  text="16 ans - 06/10/2018" verticalAlignment="center"  horizontalAlignment="left" marginLeft="15"></Label>
 
         <GridLayout columns="auto" rows="auto,*"  col="1" row="2" backgroundColor="white" horizontalAlignment="left" borderRadius="2" marginTop="15" horizontalAlignment="right" marginRight="20">  
-            <Image row="0" src="~/img/dent4.png" verticalAlignment="top"  horizontalAlignment="center" width="128" marginTop="5"></Image>  
+            <Image row="0"  #Img [src]="LienImage[3]" (tap)="zoom(Img,LienImage[3])" verticalAlignment="top"  horizontalAlignment="center" width="128" marginTop="5"></Image>  
         </GridLayout>     
         <Label id="iconec" row="3" col="1"  text="16 ans - 06/10/2018" verticalAlignment="center"  horizontalAlignment="right" marginRight="15"></Label>
     </GridLayout>
