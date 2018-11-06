@@ -14,44 +14,53 @@
     <Label class="action-bar-title" text="Accueil"></Label>
 </ActionBar>
 
-<scrollView orientation="vertical">
-    <StackLayout orientation="vertical">
-        <Image src="res://vaguetop" class="header"></Image>
-        <Image src="https://pierrecastaingv.github.io/Orthalis/images/logo.jpg" class="logo"></Image>
+<GridLayout>
+    
+    <scrollView orientation="vertical">
+        <StackLayout orientation="vertical">
+            
+            <Image src="res://vaguetop" class="header"></Image>
+            <Image src="cabinet.logo" class="logo"></Image>
 
-        <stackLayout class="imgcabinet">
-            <label class="h2" text="Cabinet orthodontique, Lou Andreas-Salomé idnf$ingfngf$a foqjgpofdqjgfodjgi ojfijijijijijijij" textWrap="true"></label>
-        </stackLayout>
+            <AbsoluteLayout class="imgcabinet">
+                <Image src="https://pierrecastaingv.github.io/Orthalis/img/cabinet.png" stretch="aspectFill" left="0" top="0" width="100%" height="100%"></Image>
+                <StackLayout top="0" left="0" width="100%" height="100%">
+                    <label class="h2" [text]="cabinet[0].description_cabinet" textWrap="true"></label>
+                </StackLayout>
+            </AbsoluteLayout>
 
-        <StackLayout class="hr-light m-10"></StackLayout>
+            <StackLayout class="hr-light m-10"></StackLayout>
 
-        <StackLayout borderRadius="20" class="note">
-            <StackLayout orientation="horizontal" horizontalAlignment="left" class="p-10">
-                <Image height="50" width="50" src="https://pierrecastaingv.github.io/Orthalis/images/patient2.png"
-                    class="m-r-10" borderRadius="100%"></Image>
-                <StackLayout>
-                    <Label class="h3" text="Sidonie"></Label>
-                    <Label class="h4" textWrap="true" text="Rendez-vous avec le Docteur Roulette le 12 octobre à 9h."></Label>
-                    <label class="h3" text="Contrôle appareil"></label>
+            <StackLayout borderRadius="20" class="note">
+                <StackLayout orientation="horizontal" horizontalAlignment="left" class="p-10">
+                    <Image height="50" width="50" src="https://pierrecastaingv.github.io/Orthalis/images/patient2.png"
+                        class="m-r-10" borderRadius="100%"></Image>
+                    <StackLayout>
+                        <Label class="h3" text="Sidonie"></Label>
+                        <Label class="h4" textWrap="true" text="Rendez-vous avec le Docteur Roulette le 12 octobre à 9h."></Label>
+                        <label class="h3" text="Contrôle appareil"></label>
+                    </StackLayout>
                 </StackLayout>
             </StackLayout>
-        </StackLayout>
 
-        <StackLayout borderRadius="20" class="note">
-            <StackLayout orientation="horizontal" horizontalAlignment="left" class="p-10">
-                <Image height="50" width="50" src="https://pierrecastaingv.github.io/Orthalis/img/utilisateur.jpg"
-                    class="m-r-10" borderRadius="100%"></Image>
-                <StackLayout>
-                    <Label class="h3" text="Eléonore"></Label>
-                    <Label class="h4" textWrap="true" text="Rendez-vous avec le Docteur Finky le 21 décembre à 11h."></Label>
-                    <label class="h3" text="Pose appareil"></label>
+            <StackLayout borderRadius="20" class="note">
+                <StackLayout orientation="horizontal" horizontalAlignment="left" class="p-10">
+                    <Image height="50" width="50" src="https://pierrecastaingv.github.io/Orthalis/img/utilisateur.jpg"
+                        class="m-r-10" borderRadius="100%"></Image>
+                    <StackLayout>
+                        <Label class="h3" text="Eléonore"></Label>
+                        <Label class="h4" textWrap="true" text="Rendez-vous avec le Docteur Finky le 21 décembre à 11h."></Label>
+                        <label class="h3" text="Pose appareil"></label>
+                    </StackLayout>
                 </StackLayout>
             </StackLayout>
+
+            <!--Notifications  -->
+            <StackLayout>
+                <Button text="Notifier" (tap)="notification()"></Button>
+            </StackLayout>
+
         </StackLayout>
+    </scrollView>
 
-        <AbsoluteLayout class="m-t-5">
-            <label class="fa bg-danger" col="0" text="&#xf196;" left="22"></label>
-        </AbsoluteLayout>
-
-    </StackLayout>
-</scrollView>
+</GridLayout>

@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
             .subscribe(
                 res => {
                     if (res != "") {
-                        console.log("Bon code cabinet");
+                        console.log("Bon code cabinet, réponse : "+res);
                         // Write infos in local file
                         this.dataService.ecritInfos("Orthalis", "cabinet", res);
                         // Store them in Globals

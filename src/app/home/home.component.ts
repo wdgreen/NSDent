@@ -14,16 +14,21 @@ import { Globals } from "~/app/services/globals";
 export class HomeComponent implements OnInit {
 
     chargement: boolean;
+    cabinet = Globals.cabinet;
 
     constructor() {
         this.chargement = Globals.chargement;
-        console.log(Globals.cabinet);
     }
 
     ngOnInit(): void {
         this.chargement = false;
+        console.log(Globals.cabinet);
         //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
         //Add 'implements OnInit' to the class.
+        
+    }
+
+    notification():void {
         
     }
 

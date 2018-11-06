@@ -28,7 +28,6 @@ TextField {
 }
 /* Page specific CSS ====================================================== */
 .imgcabinet{
-    background-image:url("https://pierrecastaingv.github.io/Orthalis/img/cabinet.png");
     border-radius:12;
     width:95%;
     height:150;
@@ -58,4 +57,9 @@ TextField {
     height:110;
     font: size 1vw;
     background-color:rgba(205, 241, 41, 0.26);
+}
+Button {
+    width: 40%;
+    height: 45;
+    background: rgb(24, 109, 7);
 }
