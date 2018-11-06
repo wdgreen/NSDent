@@ -44,11 +44,15 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                     <Label col="0" text="&#xf013;" class="fa" fontSize="24" color="#77F4F0"></Label>
                     <Label col="1" text="Paramètres" class="p-r-10" fontSize="20"  color="#AAFFFE"></Label>
                 </GridLayout>
-                <GridLayout columns="auto, *"  class="sidedrawer-list-item" marginLeft="20" marginTop="180">
+                <GridLayout columns="auto, *"  class="sidedrawer-list-item" marginLeft="20" marginTop="140">
                     <Label col="1" text="ORTHALIS" class="p-r-10" fontSize="40" color="rgba(200,200,200,0.2)"></Label>
                 </GridLayout>
+                <GridLayout columns="auto, *"  class="sidedrawer-list-item" [class.selected]="isComponentSelected('/camera')" (tap)="onNavItemTap('/camera')" marginTop="0">
+                    <Label col="0" text="&#xf030;" class="fa" fontSize="24" color="rgba(200,200,200,0.3)"></Label>
+                    <Label col="1" text="Photo" class="p-r-10" fontSize="20" color="rgba(200,200,200,0.3)"></Label>
+                </GridLayout>
                 <GridLayout columns="auto, *"  class="sidedrawer-list-item" [class.selected]="isComponentSelected('/chat')" (tap)="onNavItemTap('/chat')" marginTop="0">
-                    <Label col="0" text="&#xf013;" class="fa" fontSize="24" color="rgba(200,200,200,0.3)"></Label>
+                    <Label col="0" text="&#xf086;" class="fa" fontSize="24" color="rgba(200,200,200,0.3)"></Label>
                     <Label col="1" text="Chat" class="p-r-10" fontSize="20" color="rgba(200,200,200,0.3)"></Label>
                 </GridLayout>
                 

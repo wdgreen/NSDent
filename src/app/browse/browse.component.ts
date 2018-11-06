@@ -1,32 +1,24 @@
 import { Component, OnInit,ViewContainerRef } from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
-import { Color } from "tns-core-modules/color";
-import { Label } from "tns-core-modules/ui/label";
 import { Image } from "tns-core-modules/ui/image";
 import * as enums from "tns-core-modules/ui/enums";
 
-import { ModalDialogService, ModalDialogOptions } from "nativescript-angular/modal-dialog";
+import { ModalDialogService } from "nativescript-angular/modal-dialog";
 
-import { NativeScriptUIListViewModule, RadListViewComponent, } from "nativescript-ui-listview/angular";
 import { ObservableArray } from "tns-core-modules/data/observable-array";
 import { DataItem } from "../dataItem";
 import { DataItemService } from "../dataItem.service";
-import { ListViewEventData, RadListView, ListViewGridLayout } from "nativescript-ui-listview";
 
-import { StackLayout } from "tns-core-modules/ui/layouts/stack-layout/stack-layout";
 import { AbsoluteLayout } from "tns-core-modules/ui/layouts/absolute-layout/absolute-layout";
 import { EventData } from "data/observable";
 import { Page } from "ui/page";
 import { GridLayout  } from "ui/layouts/grid-layout";
     
 import { View } from "ui/core/view";
-import { WrapLayout } from "ui/layouts/wrap-layout";
 import { Animation } from "ui/animation";
 
-import { Button } from "tns-core-modules/ui/button";
 
-const modalViewModulets = "ns-ui-category/modal-view/basics/modal-ts-view-page";
 
 @Component({
     selector: "Browse",
@@ -55,9 +47,32 @@ export class BrowseComponent implements OnInit {
         public isUn : boolean = true;
         public isDeux : boolean = false;
         public isTrois : boolean = false;
+        public ImgSlider: string;
+
+
+        animateSlider(image: Image) {
+            image.animate({
+                opacity: 0,
+               // backgroundColor: new Color("Blue"),
+                translate: { x: 0, y: 0 },
+                scale: { x: 1, y: 1 },
+                rotate: 0,
+                duration: 5000,
+                delay: 50,
+                iterations: 1,
+                curve: enums.AnimationCurve.easeInOut
+            }).then(() => {
+                console.log("Animation finished.");
+                this.isUn  = false;
+                this.isDeux  = true;
+            }).catch((e) => {
+                console.log(e.message);
+                
+            });
+        }
+
 
         animate(image: Image) {
-            // >> animation-animating-properties-code
             image.animate({
                 opacity: 0,
                // backgroundColor: new Color("Blue"),
@@ -76,50 +91,76 @@ export class BrowseComponent implements OnInit {
                 console.log(e.message);
                 
             });
-            // << animation-animating-properties-code
-    }
-    animate2(image: Image) {
-        // >> animation-animating-properties-code
-        image.animate({
-            opacity: 0,
-           // backgroundColor: new Color("Blue"),
-            translate: { x: 0, y: 0 },
-            scale: { x: 1, y: 1 },
-            rotate: 0,
-            duration: 5000,
-            delay: 0,
-            iterations: 1,
-            curve: enums.AnimationCurve.easeInOut
-        }).then(() => {
-            console.log("Animation finished.");
-            this.isDeux = false;
-            this.isTrois = true;
-        }).catch((e) => {
-            console.log(e.message);
-        });
-        // << animation-animating-properties-code
-}
-animate3(image: Image) {
-    // >> animation-animating-properties-code
-    image.animate({
-        opacity: 1,
-       // backgroundColor: new Color("Blue"),
-        translate: { x: 0, y: 0 },
-        scale: { x: 1, y: 1 },
-        rotate: 0,
-        duration: 5000,
-        delay: 0,
-        iterations: 1,
-        curve: enums.AnimationCurve.easeInOut
-    }).then(() => {
-        console.log("Animation finished.");
-    }).catch((e) => {
-        console.log(e.message);
-    });
-    // << animation-animating-properties-code
-}
+        }
+        animate2(image: Image) {
+                image.animate({
+                    opacity: 0,
+                    duration: 5000,
+                    iterations: 1,
+                    curve: enums.AnimationCurve.easeInOut
+                }).then(() => {
+                    console.log("Animation finished.");
+                    this.isDeux = false;
+                    this.isTrois = true;
+                }).catch((e) => {
+                    console.log(e.message);
+                });
+        }
+//        animate3(image: Image) {
+    animate3(AbLy: AbsoluteLayout) {
+        AbLy.animate({
+                opacity: 0,
+                duration: 5000,
+                iterations: 1,
+                curve: enums.AnimationCurve.easeInOut
+            }).then(() => {
+                console.log("Animation finished 1.");
+                this.ImgSlider = "res://cabinet3"
+                AbLy.animate({
+                    opacity: 1,
+                    duration: 3000,
+                    iterations: 1,
+                    curve: enums.AnimationCurve.easeInOut
+                    }).then(() => {
+                            console.log("Animation finished2.");
+                            AbLy.animate({
+                                opacity: 0,
+                                duration: 3000,
+                                iterations: 1,
+                                curve: enums.AnimationCurve.easeInOut
+                                }).then(() => {
+                                    this.ImgSlider = "res://cabinet1"
+                                        console.log("Animation finished 3s.");
+                                        AbLy.animate({
+                                            opacity: 1,
+                                            duration: 5000,
+                                            iterations: 1,
+                                            curve: enums.AnimationCurve.easeInOut
+                                        }).then(() => {
+                                            console.log("Animation finished 3s.");
+                                            AbLy.animate({
+                                                opacity: 0,
+                                                duration: 3000,
+                                                iterations: 1,
+                                                curve: enums.AnimationCurve.easeInOut
+                                            })
+                                            this.ImgSlider = "res://cabinet"
+                                            AbLy.animate({
+                                                opacity: 1,
+                                                duration: 3000,
+                                                iterations: 1,
+                                                curve: enums.AnimationCurve.easeInOut
+                                            })
+                                            
+                                           
+                                        })
+                })
+            })
+            }).catch((e) => {
+                console.log(e.message);
+            });
+        }
        
-            // << animation-animating-properties-code
     constructor(private _dataItemService: DataItemService,private modalService: ModalDialogService, private vcRef: ViewContainerRef) {
         // Use the component constructor to inject providers.
     }
@@ -128,7 +169,9 @@ animate3(image: Image) {
         // Init your component properties here.
         this._dataItems = new ObservableArray(this._dataItemService.getVariableWidthItems());
         this._selectedItems = "No Selected items.";
+        this.ImgSlider = "res://cabinet";
     }
+
     test1() : void {
        
     }
@@ -155,8 +198,9 @@ animate3(image: Image) {
         this.onAnimate2(StLy); //rends visible toto
         //this.animate0;
     }
+
     FadeSlider(AbLy: AbsoluteLayout) {
-        this.onAnimate3(AbLy); //rends visible toto
+        this.animate3(AbLy); 
         //this.animate0;
     }
     get selectedItems(): string {
@@ -204,8 +248,7 @@ animate3(image: Image) {
 
     }
 
-   
-    onAnimate3(AbLy : AbsoluteLayout)  {
+   onAnimate3(AbLy : AbsoluteLayout)  {
         this.animationSet = new Animation([{
             target: AbLy,
             opacity: 0,
@@ -231,8 +274,6 @@ animate3(image: Image) {
           });
     }
 
-
-    
     onDrawerButtonTap(): void {
         const sideDrawer = <RadSideDrawer>app.getRootView();
         sideDrawer.showDrawer();

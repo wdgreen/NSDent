@@ -8,7 +8,7 @@ export class ChatService {
     const me = {
       name: 'Me',
       pictureUrl: "res://utilisateur",//'https://unsplash.it/100/100?image=837',
-      coverUrl: ''
+      coverUrl: "res://fond.png",
     };
     const other = {
       name: "Doctor Eleisbaeth Anns",//faker.name.findName(),

@@ -17,23 +17,23 @@
 <ScrollView orientation="vertical">
 <StackLayout orientation="vertical" (Loaded)="Loaded($event)">
         
-    <AbsoluteLayout #AbLy width="95%" height="20%" clipToBounds="true" backgroundColor="LightGray" (tap)="FadeSlider(AbLy)">
-        <Image id="view" src="res://cabinet" width="100%"></Image>
+    <AbsoluteLayout #AbLy width="100%" height="20%" clipToBounds="true" backgroundColor="LightGray" (tap)="FadeSlider(AbLy)">
+        <Image id="view" [src]="ImgSlider" width="100%"></Image>
     </AbsoluteLayout>
     <GridLayout tkExampleTitle tkToggleNavButton>
         <RadListView [items]="dataItems" (Loaded)="Loaded($event)">
             <ng-template tkListItemTemplate let-item="item">
                 <StackLayout orientation="vertical" row="230" >
-                    <GridLayout  #GrLy2 id="view1" row="0" rowSpan="3" rows="75,80,75" colummns="*,*" [backgroundColor]="item.color"  borderColor="lightblue">
-                                <Image row="0" col="0" [src]="item.image" height="75"  verticalAlignment="Top"  horizontalAlignment="left" ></Image>
-                                <Label row="0" col="0" text="&#xf055;" (tap)="infoDoc2(GrLy)" class="fa" fontSize="22"  verticalAlignment="Top"  horizontalAlignment="right" marginRight="15" color="Blue" marginTop="20"  ></Label>
+                    <GridLayout  borderRadius="5" #GrLy2 id="view1" row="0" rowSpan="3" rows="75,80,75" colummns="*,*" [backgroundColor]="item.color" borderColor="#EBEBEB">
+                                <Image row="0" col="0" [src]="item.image" height="75"  verticalAlignment="Top"  horizontalAlignment="left"></Image>
+                                <Label row="0" col="0" text="&#xf055;" (tap)="infoDoc2(GrLy)" class="fa" fontSize="22"  verticalAlignment="Top"  horizontalAlignment="right" marginRight="15" color="#D3E6E4" marginTop="20"  ></Label>
                                 <Label #label row="1" col="0" class="nameLabel" text="Interne Hopitaux: " [backgroundColor]="item.color" [width]="item.size" verticalAlignment="top" horizontalAlignment="center" ></Label>
                                 <Label row="2" col="0"   class="nameLabel" [text]="item.description" [backgroundColor]="item.color"  [width]="item.size" verticalAlignment="top" horizontalAlignment="center"  ></Label>
                     </GridLayout>
-                    <GridLayout #GrLy id="view" name="tata" rows="150,40,40" colummns="*,*"  [backgroundColor]="item.color" borderColor="lightblue" borderWidth="1" marginTop="-230">
-                                <Image row="0" colSpan="2" [src]="item.image" height="150"></Image>
+                    <GridLayout borderRadius="5" #GrLy id="view" name="tata" rows="150,40,40" colummns="*,*"  [backgroundColor]="item.color" borderColor="#EBEBEB" borderWidth="1" marginTop="-230">
+                                <Image  borderRadius="5" row="0" colSpan="2" [src]="item.image" height="150"></Image>
                                 <Label #label row="1" col="0" class="nameLabel" text="tata" [backgroundColor]="item.color" [width]="item.size" verticalAlignment="Bottom" horizontalAlignment="center" marginLeft="5" ></Label>
-                                <Label row="1" col="1" text="&#xf055;"  class="fa" fontSize="22" (tap)="infoDoc(GrLy)" verticalAlignment="Top"  horizontalAlignment="right" marginRight="15" color="Blue" marginTop="20"  ></Label>
+                                <Label row="1" col="1" text="&#xf055;"  class="fa" fontSize="22" (tap)="infoDoc(GrLy)" verticalAlignment="Top"  horizontalAlignment="right" marginRight="15" color="#D3E6E4" marginTop="20"  ></Label>
                             <Label row="2" colSpan="2"  class="nameLabel" [text]="item.description" [backgroundColor]="item.color"  [width]="item.size" verticalAlignment="center" horizontalAlignment="center" marginLeft="5" ></Label>
                     </GridLayout>
                 </StackLayout>
@@ -45,14 +45,14 @@
     <AbsoluteLayout top="58%">
     
             <GridLayout  backgroundColor="white" top="10%" left="65%" >  
-                <Label id="titre1" text="Notre Cabinet tointoin" fontSize="22"></Label>
+                <Label id="titre1" text="Cabinet Plarre" fontSize="22" paddingLeft="40%"></Label>
             </GridLayout> 
 
             <StackLayout top="45%" left="22%">
                 <!-- >> using-ngif-html -->
                 <GridLayout (tap)="test1()" class="list1" columns="60, 250" height="65" backgroundColor="white" horizontalAlignment="center" borderBottom="2" borderRadius="2" marginBottom="0" borderWidth="1" marginTop="15">  
                     <GridLayout borderRadius="100" width="50" height="50" backgroundColor="#4DB6AC">  
-                        <Label col="0" text="&#xf041;" class="fa" fontSize="32" color="white"  horizontalAlignment="center" verticalAlignment="center"></Label>
+                        <Label col="0" text="&#xf041;" class="fa" fontSize="32" color="white" horizontalAlignment="center" verticalAlignment="center"></Label>
                     </GridLayout>
                     <Label id="iconec" col="1"  text="Adresse: 25 Ave dunois"  horizontalAlignment="Left"  verticalAlignment="center" paddingLeft="10"></Label>
                 </GridLayout>

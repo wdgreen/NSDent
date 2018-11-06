@@ -61,15 +61,17 @@
         </StackLayout>
         <Image 
           [src]="item.sender.pictureUrl"
-          [class]="bubbleClass(item) + '-picture'"></Image>
+          [class]="bubbleClass(item) + '-picture'">
+        </Image>
       </GridLayout>
     </ng-template>
   </ListView>
-  <StackLayout
+  <StackLayout 
     #messageBox
     row="2">
     <StackLayout
-      class="horizontal-separator"></StackLayout>
+      class="horizontal-separator">
+    </StackLayout>
     <StackLayout class="message-box-container">
       <GridLayout
         columns="*, auto"
@@ -78,7 +80,8 @@
           #newMessage
           col="0"
           hint="Write a message..."
-          class="write-message-field" ></TextView>
+          class="write-message-field" >
+        </TextView>
         <Label
           (tap)="sendMessage()"
           col="1"
