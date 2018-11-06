@@ -9,48 +9,63 @@
     NavigationButton as a side-drawer button in iOS is not possible,
     because its function is to always navigate back in the application.
     -->
-    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
-        ios.position="left">
+    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()" ios.position="left">
     </ActionItem>
     <Label class="action-bar-title" text="Paramètres"></Label>
 </ActionBar>
 
 <ScrollView orientation="vertical">
-        <StackLayout orientation="vertical">
-        <Image src="res://vaguetop" verticalAlignment="top"  horizontalAlignment="center"></Image> 
-        <Label id="iconec"  col="0" row="0" text="&#xf013;" class="fa" fontSize="48" color="white" verticalAlignment="top"  horizontalAlignment="center" marginTop="-90" marginBottom="100"></Label> 
-              <GridLayout class="list1" columns="40,260" rows="40"  backgroundColor="white" horizontalAlignment="center" borderRadius="2" marginTop="20">  
-                    <Label id="iconec"  col="1" row="0"  text="Recevoir des notifications" verticalAlignment="center"  paddingLeft="30"></Label>
-                    <Label id="iconec"  col="0" row="0" text="&#xf0f3;" class="fa" fontSize="17" verticalAlignment="center"  horizontalAlignment="center"></Label>
-                    
-               </GridLayout>
-               <GridLayout class="list1" columns="300" rows="40"  backgroundColor="white" horizontalAlignment="center" borderRadius="2">  
-               <StackLayout  orientation="horizontal" horizontalAlignment="center">
-                    <CheckBox #CB1 text="12h" checked="false"></CheckBox>
-                    <CheckBox #CB1 text="24h" checked="false"></CheckBox>
-                    <CheckBox #CB1 text="36h" checked="false"></CheckBox>
-                    <CheckBox #CB1 text="72h" checked="false"></CheckBox>
-                    
-                </StackLayout>
-            </GridLayout>  
-            <GridLayout class="list1" columns="300" rows="40"  backgroundColor="white" horizontalAlignment="center" borderRadius="2">  
-                    <Label id="iconec"  text="B Réglage de la taille du texte" verticalAlignment="center"  horizontalAlignment="center"></Label>
-            </GridLayout>
-                <GridLayout class="list1" columns="300" rows="80"  backgroundColor="white" horizontalAlignment="center" borderRadius="2">  
-                    <Slider row="1" col="1" value="50" minValue="0" maxValue="100"></Slider>
-                </GridLayout>
+    <StackLayout orientation="vertical">
+        <Image src="res://vaguetop" verticalAlignment="top" horizontalAlignment="center"></Image>
+        <Label id="iconec" col="0" row="0" text="&#xf013;" class="fa" fontSize="48" color="white" verticalAlignment="top"
+            horizontalAlignment="center" marginTop="-90" marginBottom="100"></Label>
+        <GridLayout class="list1" columns="40,260" rows="40" backgroundColor="white" horizontalAlignment="center"
+            borderRadius="2" marginTop="20">
+            <Label id="iconec" col="1" row="0" text="Recevoir des notifications" verticalAlignment="center" paddingLeft="30"></Label>
+            <Label id="iconec" col="0" row="0" text="&#xf0f3;" class="fa" fontSize="17" verticalAlignment="center"
+                horizontalAlignment="center"></Label>
 
-                
-                <GridLayout class="list1" columns="40,260" rows="40"  backgroundColor="white" horizontalAlignment="center" borderRadius="2">  
-                        <Label id="iconec"  col="1" row="0"  text="Réglage des contrastes" verticalAlignment="center"  horizontalAlignment="left" paddingLeft="50"></Label>
-                        <Label id="iconec"  col="0" row="0" text="&#xf013;" class="fa" fontSize="17" verticalAlignment="center"  horizontalAlignment="center"></Label>
-                </GridLayout>
-                  
-              
-               <GridLayout class="list1" columns="50,200,50" rows="40"  backgroundColor="white" horizontalAlignment="center" borderRadius="2">  
-                   <Label id="iconec" text="Nuit"  row="0" col="0" verticalAlignment="center"  horizontalAlignment="center" marginTop="-7"></Label>
-                   <Switch checked="false" row="0" col="1" verticalAlignment="center"  horizontalAlignment="center"></Switch>
-                   <Label id="iconec" text="Jour"  row="0" col="2" verticalAlignment="center"  horizontalAlignment="center" marginTop="-7"></Label>
-               </GridLayout> 
-               </StackLayout>
-            </ScrollView>
+        </GridLayout>
+        <GridLayout class="list1" columns="300" rows="40" backgroundColor="white" horizontalAlignment="center"
+            borderRadius="2">
+            <StackLayout orientation="horizontal" horizontalAlignment="center">
+                <CheckBox #CB1 text="12h" checked="false"></CheckBox>
+                <CheckBox #CB1 text="24h" checked="false"></CheckBox>
+                <CheckBox #CB1 text="36h" checked="false"></CheckBox>
+                <CheckBox #CB1 text="72h" checked="false"></CheckBox>
+
+            </StackLayout>
+        </GridLayout>
+        <GridLayout class="list1" columns="300" rows="40" backgroundColor="white" horizontalAlignment="center"
+            borderRadius="2">
+            <Label id="iconec" text="B Réglage de la taille du texte" verticalAlignment="center" horizontalAlignment="center"></Label>
+        </GridLayout>
+        <GridLayout class="list1" columns="300" rows="80" backgroundColor="white" horizontalAlignment="center"
+            borderRadius="2">
+            <Slider row="1" col="1" value="50" minValue="0" maxValue="100"></Slider>
+        </GridLayout>
+
+
+        <GridLayout class="list1" columns="40,260" rows="40" backgroundColor="white" horizontalAlignment="center"
+            borderRadius="2">
+            <Label id="iconec" col="1" row="0" text="Réglage des contrastes" verticalAlignment="center"
+                horizontalAlignment="left" paddingLeft="50"></Label>
+            <Label id="iconec" col="0" row="0" text="&#xf013;" class="fa" fontSize="17" verticalAlignment="center"
+                horizontalAlignment="center"></Label>
+        </GridLayout>
+
+
+        <GridLayout class="list1" columns="50,200,50" rows="40" backgroundColor="white" horizontalAlignment="center"
+            borderRadius="2">
+            <Label id="iconec" text="Nuit" row="0" col="0" verticalAlignment="center" horizontalAlignment="center"
+                marginTop="-7"></Label>
+            <Switch checked="false" row="0" col="1" verticalAlignment="center" horizontalAlignment="center"></Switch>
+            <Label id="iconec" text="Jour" row="0" col="2" verticalAlignment="center" horizontalAlignment="center"
+                marginTop="-7"></Label>
+        </GridLayout>
+
+        <!-- Logout Button -->
+        <Button text="Déconnecter" (tap)="submit()" class="btn btn-primary btn-rounded-lg"></Button>
+
+    </StackLayout>
+</ScrollView>

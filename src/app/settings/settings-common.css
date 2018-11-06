@@ -50,3 +50,10 @@
 .icon {
    font-family: 'icomoon';
 }
+
+/* Logout Button */
+Button {
+    width: 40%;
+    height: 45;
+    background: rgb(228, 28, 28);
+}
