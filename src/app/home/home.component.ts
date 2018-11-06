@@ -22,14 +22,7 @@ export class HomeComponent implements OnInit {
 
     ngOnInit(): void {
         this.chargement = false;
-        console.log(Globals.cabinet);
-        //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-        //Add 'implements OnInit' to the class.
-        
-    }
-
-    notification():void {
-        
+        console.log("Contenu de Globals.cabinet : " + Globals.cabinet);
     }
 
     onDrawerButtonTap(): void {

@@ -4,7 +4,9 @@ import { RouterExtensions } from "nativescript-angular/router";
 import { Auth } from "../services/models/auth.modele";
 import { AuthService } from "~/app/services/auth.service";
 import { DataService } from "~/app/services/data.service";
+import { ConnectiviteService } from "../services/connectivite.service";
 import { Globals } from "~/app/services/globals";
+
 
 @Component({
     selector: "Auth",
@@ -22,9 +24,9 @@ export class AuthComponent implements OnInit {
 
     constructor(private routerExtensions:RouterExtensions,
                 private authService:AuthService,
-                private dataService:DataService) {
+                private dataService:DataService,
+                private connectiviteService:ConnectiviteService) {
         this.chargement = Globals.chargement;
-        // Use the component constructor to inject providers.
     }
 
     ngOnInit() {
@@ -35,19 +37,18 @@ export class AuthComponent implements OnInit {
         this.chargement = true;
         Globals.chargement = this.chargement;
         
-        // dans le header : username & password
-        // par méthode GET : os & token
-        
-        this.authService.loginPatient(this.formulaire)
+        // If user connected, try to get informations from server and write them on local file
+        if (this.connectiviteService.testeConnectivite()) {
+            this.authService.loginPatient(this.formulaire)
             .subscribe(
+                // If right username/password
                 res => {
-                    // If right combinaison
-                    console.log("Bonne combinaison codePatient/motDePasse" + res);
+                    console.log("Bonne combinaison codePatient/motDePasse, voici la réponse : " + res);
                     // Write infos in local file
                     this.dataService.ecritInfos("Orthalis", "patient", res );
                     // Store them in Globals
                     this.dataService.globaliseInfos("Orthalis", "patient");
-                    // Redirect to home page
+                    // Redirect to home page and clear navigation history
                     this.routerExtensions.navigate(["home"], {
                         clearHistory: true,
                         transition: {
@@ -55,51 +56,17 @@ export class AuthComponent implements OnInit {
                         }
                     });
                 },
+                // If wrong username/password
                 err => {
-                    // If wrong combinaison or server error
+                    // Stop loading and let user retry
                     console.log("Erreur serveur ou mauvaise combinaison.");
-                    // Stop loading
                     alert("Mauvaise combinaison code patient / mot de passe");
                     this.chargement = false;
                 }
             );
-
-        // setTimeout(() => {
-        //     // Pour l'instant le bouton valider change de page pour featured
-        //     this.routerExtensions.navigate(["home"], {
-        //         clearHistory: true,
-        //         transition: {
-        //             name: "fade",
-        //             duration: 200
-        //         }
-        //     });
-        // }, 2000);
-
-        // this.authService.loginPatient(this.formulaire)
-        //     .subscribe(
-        //         res => {
-        //             if(res != ""){
-        //                 console.log("Combinaison codePatient/motDePasse correcte.");
-        //                 // Write infos in local file
-        //                 this.dataService.ecritInfos("Orthalis", "patient", res);
-        //                 // Store them in Globals
-        //                 this.dataService.globaliseInfos("Orthalis", "patient");
-        //                 // Redirect to home page
-        //                 this.routerExtensions.navigate(["home"], {
-        //                     transition: {
-        //                         name: "slideLeft",
-        //                         duration: 200
-        //                     }
-        //                 });
-        //             } else {
-        //                 console.log("Combinaison codePatient/motDePasse incorrecte.");
-        //                 alert("Combinaison codePatient/motDePasse incorrecte, veuillez entrer une combinaison valide.");
-        //             }
-        //         },
-        //         err => {
-        //             console.log("Erreur serveur.")
-        //             alert("Erreur serveur");
-        //         }
-        //     );
+        // If user is not connected, let user cry
+        } else {
+            alert("Veuillez vous connecter à internet pour récupérer vos informations");
+        }
     }
 }

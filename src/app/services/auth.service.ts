@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Settings } from "~/app/services/settings";
 // Used for notification system
 import { Globals } from '~/app/services/globals';
-
+// API call requirements
 import * as  base64 from "base-64";
 import * as utf8 from "utf8";
 
@@ -35,20 +35,7 @@ export class AuthService {
                 'Authorization': `Basic ${encodedStr}`
             })
         };
-        // console.log(this.http.get<any>(`${Settings.urlPatients}/${Globals.appareil.os}/${Globals.appareil.pushToken}`));
-        // Request API             Url                     /OS                    /Token                Header: Username & Password
+        // Request API             Url                     /OS                    /Token                           Http Header
         return this.http.get<any>(`${Settings.urlPatients}/${Globals.appareil.os}/${Globals.appareil.pushToken}/`, this.httpOptions);
     }
-
-    // logoutUser() {
-    //     // localStorage.removeItem('token')
-    //     // this._router.navigate(['/login'])
-    // }
-    // getToken() {
-    //     // return localStorage.getItem('token')
-    // }
-
-    // loggedIn() {
-    //     // return !!localStorage.getItem('token')
-    // }
 }
