@@ -1,5 +1,8 @@
 <!-- TOC -->
 
+- [Utilisation](#utilisation)
+    - [Login Cabinet](#login-cabinet)
+    - [Login Patient](#login-patient)
 - [Prérequis pour builder l'application](#prérequis-pour-builder-lapplication)
     - [NodeJS + NPM](#nodejs--npm)
         - [Installer Node & NPM avec NVM](#installer-node--npm-avec-nvm)
@@ -12,6 +15,22 @@
 - [Builder l'application](#builder-lapplication)
 
 <!-- /TOC -->
+# Utilisation
+
+## Login Cabinet
+
+12345
+
+## Login Patient
+
+**Patient 1 :**
+BU26
+12345
+
+**Patient 2 :**
+TO53
+12345
+
 
 # Prérequis pour builder l'application
 
