@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
                 res => {
                     // If right codeCabinet
                     if (res != "") {
-                        console.log("Bon code cabinet, voici la réponse : "+res);
+                        console.log('Bon code cabinet');
                         // Write infos in local file
                         this.dataService.ecritInfos("Orthalis", "cabinet", res);
                         // Store them in Globals
@@ -60,9 +60,9 @@ export class LoginComponent implements OnInit {
                     // If wrong codeCabinet
                     } else {
                         // Stop loading and let user retry
-                        console.log("Mauvais code cabinet.")
-                        alert("Aucun code cabinet correspondant, veuillez entrer un code valide.");
                         this.chargement = false;
+                        console.log("Mauvais code cabinet.");
+                        alert("Aucun code cabinet correspondant, veuillez entrer un code valide.");
                     }
                 },
                 // Server doesn't work

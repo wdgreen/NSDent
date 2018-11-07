@@ -14,15 +14,18 @@ import { Globals } from "~/app/services/globals";
 export class HomeComponent implements OnInit {
 
     chargement: boolean;
-    cabinet = Globals.cabinet;
+    cabinet;
 
     constructor() {
         this.chargement = Globals.chargement;
+        this.cabinet = Globals.cabinet[0];
     }
 
     ngOnInit(): void {
         this.chargement = false;
-        console.log("Contenu de Globals.cabinet : " + Globals.cabinet);
+        console.log("*********************************************** Contenu de Globals.cabinet : " + JSON.stringify(Globals.cabinet) );
+        console.log("_______________________________________________ Test : " + JSON.stringify(this.cabinet.photo_cabinet));
+        console.log("*********************************************** Contenu de Globals.patient : " + JSON.stringify(Globals.patient) );
     }
 
     onDrawerButtonTap(): void {

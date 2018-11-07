@@ -1,0 +1,44 @@
+{
+    "patient": {
+        "codePatient": 26352,
+        "nom": "BUSSON",
+        "prenom": "Cedric",
+        "telephones": [
+            "05 59 14 58 40",
+            "06"
+        ],
+        "dateNaissance": "2000-01-01",
+        "email": "cedric.motigaud@groupe-orqual.com",
+        "relations": []
+    },
+    "rendezVous": [
+        {
+            "date": "2018-11-14 10:15"
+        },
+        {
+            "date": "2018-12-12 10:45"
+        },
+        {
+            "date": "2019-01-09 11:15"
+        }
+    ],
+    "paiements": [],
+    "echeances": [
+        {
+            "montant": "23",
+            "montantRegle": "0",
+            "date": "2018-11-06"
+        }
+    ],
+    "soldes": [
+        {
+            "montant": "23"
+        }
+    ],
+    "photos": {
+        "identity": "/kdsimages/BUSSON CEDRIC 01012000/67800.jpg",
+        "identityThumb": "/kdsimages/BUSSON CEDRIC 01012000/67800-500.jpg",
+        "paires": []
+    }
+}
+

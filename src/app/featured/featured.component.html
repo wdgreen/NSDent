@@ -19,22 +19,22 @@
 
     <ScrollView>
         <StackLayout class="page page-content">
-    
-            <StackLayout *ngFor="let p of patientService.patient">
+
                 <Image src="res://vaguetop" class="header"></Image>
-                <Image [src]="p.photos[0].lien" class="imgProfil"></Image>
+                
+                <Image [src]="photo" class="imgProfil"></Image>
+                
                 <Label class="br"></Label>
-                <Label class="h1" [text]="p.etatCivil.prenom"></Label>
+                <Label class="h1" [text]="patient.patient.prenom"></Label>
                 <Label class="br"></Label>
                 <StackLayout>
-                    <TextField hint="Prénom" [text]="p.etatCivil.prenom" editable="false"></TextField>
-                    <TextField hint="Nom" [text]="p.etatCivil.nom" editable="false"></TextField>
-                    <TextField hint="Téléphone" [text]="p.etatCivil.telephones[0]" editable="false"></TextField>
-                    <TextField hint="Mobile" [text]="p.etatCivil.telephones[1]" editable="false"></TextField>
-                    <TextField hint="Email" [text]="p.etatCivil.email" editable="false"></TextField>
+                    <TextField hint="Prénom" [text]="patient.patient.prenom" editable="false"></TextField>
+                    <TextField hint="Nom" [text]="patient.patient.nom" editable="false"></TextField>
+                    <TextField hint="Téléphone" [text]="patient.patient.telephones[0]" editable="false"></TextField>
+                    <TextField hint="Mobile" [text]="patient.patient.telephones[1]" editable="false"></TextField>
+                    <TextField hint="Email" [text]="patient.patient.email" editable="false"></TextField>
                 </StackLayout>
-            </StackLayout>
-    
+
         </StackLayout>
     </ScrollView>
     

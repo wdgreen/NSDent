@@ -34,7 +34,7 @@ export class DataService {
 
         this.fichier.readText()
             .then(res => {
-                console.log("Contenu local récupéré de " + lFichier + ".json");
+                console.log("GlobaliseInfos de " + lFichier + ".json");
                 // Uggly ...
                 if(lFichier == "cabinet") { Globals.cabinet = JSON.parse(res); }
                 if(lFichier == "patient") { Globals.patient = JSON.parse(res); }
@@ -60,7 +60,7 @@ export class DataService {
             .then(result => {
                 this.fichier.readText()
                     .then(res => {
-                        console.log("Contenu local de " + eFichier + " mis à jour");
+                        console.log("EcritInfos de " + eFichier);
                         console.log(eFichier + " = " + res);
                     })
                     .catch(err => {

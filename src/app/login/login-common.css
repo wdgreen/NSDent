@@ -6,6 +6,7 @@ ActionBar {
     width:100%;
     margin-top: -45;
     margin-left: 0;
+    margin-right: 0;
 }
 .br {
     height: 15;
@@ -25,6 +26,8 @@ TextField {
 .footer {
     rotate: 180;
     bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
 }
 /* Page specific CSS ====================================================== */
 .headerImg {
