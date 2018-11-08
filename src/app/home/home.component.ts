@@ -128,20 +128,20 @@ constructor(private chatService: ChatService) {
     //       this.chargement = false;
     //       console.log("Contenu de Globals.cabinet : " + Globals.cabinet);
    
-//        //permet de mettre un interval dans la notif 
-//      this.id = setInterval(() => {
-//       this.schedule();   
-//     }, 10000);
+       //permet de mettre un interval dans la notif 
+     this.id = setInterval(() => {
+      this.schedule();   
+    }, 10000);
    
-//     setTimeout(() => {
-//      clearInterval(this.id);
-// //this.schedule();   
-//     }, 40000);   
+    setTimeout(() => {
+     clearInterval(this.id);
+//this.schedule();   
+    }, 40000);   
 
-    // this.Notifmessage1 = "Rendez-vous  10 h 45 \n Docteur Athure Etienne\n Remplacement de bagues.";
-    // LocalNotifications.addOnMessageReceivedCallback(() => {
-    //     this.sendMessage();                         
-    // });
+    this.Notifmessage1 = "Rendez-vous  10 h 45 \n Docteur Athure Etienne\n Remplacement de bagues.";
+    LocalNotifications.addOnMessageReceivedCallback(notificationData => {
+        this.sendMessage();                         
+    });
     
  /*LocalNotifications.addOnMessageReceivedCallback(notificationData => {
    Dialogs.alert({
