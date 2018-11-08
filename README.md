@@ -1,6 +1,8 @@
 <!-- TOC -->
 
 - [Utilisation](#utilisation)
+    - [Démonstration](#démonstration)
+        - [Les pages login](#les-pages-login)
     - [Login Cabinet](#login-cabinet)
     - [Login Patient](#login-patient)
 - [Prérequis pour builder l'application](#prérequis-pour-builder-lapplication)
@@ -16,6 +18,15 @@
 
 <!-- /TOC -->
 # Utilisation
+
+## Démonstration
+
+* Lancez l'application 'MonOrtho'
+
+### Les pages login
+
+* Vous arrivez sur une page vous proposant de saisir votre 'Code cabinet', entrez 12345 (ensuite 54321 si vous voulez montrez le changement dynamique de cabinet)
+* Vous arrivez sur le second login  
 
 ## Login Cabinet
 
