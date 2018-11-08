@@ -4,7 +4,11 @@ import * as app from "tns-core-modules/application";
 import { ModalDialogService, ModalDialogOptions } from "nativescript-angular/modal-dialog";
 import { ModalViewComponent } from "../modal-view/modal-view.component";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Globals } from "../services/globals";
 
+import { ConnectiviteService } from "../services/connectivite.service";
+import { PatientService } from "../services/patient.service";
+import { Settings } from "../services/settings";
 @Component({
     selector: "Search",
     moduleId: module.id,
@@ -13,6 +17,18 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
     styleUrls: ["./search-common.css"]
 })
 export class SearchComponent implements OnInit {
+    nomPatient;
+    cabinet: any;
+
+    // Partie dynamique
+   photoCabinet;
+   nomCabinet;
+   chargement: boolean;
+   patient;
+   photosPatient;
+   photosUrl;
+   photoProfil;
+
     public isVisible: boolean = false;
     public isVisible2: boolean = false;
     public isVisible1 : boolean = false;
@@ -20,9 +36,18 @@ export class SearchComponent implements OnInit {
     public LienImage: Array<string> = []; 
     public LienImageRef: string ; 
 
-    constructor(private modalService: ModalDialogService, private vcRef: ViewContainerRef,private http: HttpClient) {
+    constructor(private modalService: ModalDialogService, private vcRef: ViewContainerRef,private http: HttpClient,
+        private connectiviteService:ConnectiviteService,
+                private patientService:PatientService) {
         // Use the component constructor to inject providers.
-       
+        /* Contenu dynamique */
+    this.chargement = Globals.chargement;
+    this.cabinet = Globals.cabinet[0];
+    this.photoCabinet = this.cabinet.photo_cabinet;
+    this.nomCabinet = this.cabinet.nom_cabinet;
+    this.patient = Globals.patient.result[0][0];
+    this.photoProfil = `${Settings.urlImages}${this.patient.photos.identity}`;
+    this.photoProfil = encodeURI(`${Settings.urlImages}${this.patient.photos.identity}`);
     }
         getStartDate() {
                 this.createModelView().then(result => {
@@ -31,10 +56,11 @@ export class SearchComponent implements OnInit {
                 }).catch(error => this.handleError(error));
             }
     ngOnInit(): void {
+        this.chargement = false;
         // Init your component properties here.
-        this.LienImage[0] = "http://www.fabriquenumerique.fr/OrthalisDemo/img/dent4.png"; //  "res://lamai";
-        this.LienImage[1] = "http://www.fabriquenumerique.fr/OrthalisDemo/img/dent1.jpg"; //  "res://lamai";
-        this.LienImage[2] = "http://www.fabriquenumerique.fr/OrthalisDemo/img/dent2.jpg";
+        this.LienImage[0] = "http://www.fabriquenumerique.fr/OrthalisDemo/img/dent1.jpg"; 
+        this.LienImage[1] = "http://www.fabriquenumerique.fr/OrthalisDemo/img/dent2.jpg"; 
+        this.LienImage[2] = "http://www.fabriquenumerique.fr/OrthalisDemo/img/dent4.png";
         this.LienImage[3] = "http://www.fabriquenumerique.fr/OrthalisDemo/img/dent4.png";
     }
 

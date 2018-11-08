@@ -18,6 +18,8 @@ import { GridLayout  } from "ui/layouts/grid-layout";
 import { View } from "ui/core/view";
 import { Animation } from "ui/animation";
 
+import { Globals } from "../services/globals";
+
 
 
 @Component({
@@ -28,6 +30,13 @@ import { Animation } from "ui/animation";
     styleUrls: ["./browse-common.css"]
 })
 export class BrowseComponent implements OnInit {
+     // Partie dynamique
+    photoCabinet;
+    nomCabinet;
+    chargement: boolean;
+    cabinet: any;
+    
+
     public view: View;    
     public isAfficher: boolean = true;
     private _dataItems: ObservableArray<DataItem>;
@@ -163,6 +172,12 @@ export class BrowseComponent implements OnInit {
        
     constructor(private _dataItemService: DataItemService,private modalService: ModalDialogService, private vcRef: ViewContainerRef) {
         // Use the component constructor to inject providers.
+        /* Contenu dynamique */
+    this.chargement = Globals.chargement;
+    this.cabinet = Globals.cabinet[0];
+    this.photoCabinet = this.cabinet.photo_cabinet;
+    this.nomCabinet = this.cabinet.nom_cabinet;
+
     }
 
     ngOnInit(): void {
