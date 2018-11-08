@@ -26,8 +26,8 @@ export class FeaturedComponent implements OnInit {
                 private patientService:PatientService) {
         this.chargement = Globals.chargement;
         this.patient = Globals.patient.result[0][0];
-        
-        this.photoProfil = `${Settings.urlImages}${this.patient.photos.identity}`;
+        this.photoProfil = `encodeURI(${Settings.urlImages}${this.patient.photos.identity})`
+        //this.photoProfil = `${Settings.urlImages}${this.patient.photos.identity}`;
     }
 
     ngOnInit(): void { 
