@@ -8,7 +8,7 @@ import { TimeAgoPipe } from '../time-ago.pipe';
 @NgModule({
   imports: [
     ChatRoutingModule,
-    NativeScriptCommonModule
+    NativeScriptCommonModule   
   ],
   declarations: [ChatComponent,TimeAgoPipe],
   schemas: [NO_ERRORS_SCHEMA]

@@ -13,48 +13,64 @@
     </ActionItem>
     <Label class="action-bar-title" text="Accueil"></Label>
 </ActionBar>
+     <GridLayout rows="auto,*,50">
+       <GridLayout row="0">
+            <StackLayout orientation="vertical">
+                <Image src="res://vaguetop" class="header"></Image>
+                 <!--Logo-->
+            <Image src="https://pierrecastaingv.github.io/Orthalis/images/logo.jpg" class="logo" width="50"></Image>
 
-<GridLayout>
-    
-    <scrollView orientation="vertical">
-        <StackLayout orientation="vertical">
-            
-            <Image src="res://vaguetop" class="header"></Image>
 
-            <AbsoluteLayout class="imgcabinet">
-                <Image [src]="photoCabinet" stretch="aspectFill" left="0" top="0" width="100%" height="100%"></Image>
-                <StackLayout top="0" left="0" width="100%" height="100%">
-                    <label class="h2" text="yolo" textWrap="true"></label>
+            <!--cabinet-->
+            <AbsoluteLayout border-radius="12" textWrap="true">
+                <Image [src]="photoCabinet" borderRadius="10" stretch="fill"
+                    left="0" top="10" width="95%" height="100" marginLeft="2.5%"></Image>
+                <StackLayout class="titre2" top="0" left="0" width="95%" marginLeft="2.5%" marginTop="-20">
+                    <label class="h2" text="Cabinet Andreas-Salomé" textWrap="true"></label>
                 </StackLayout>
             </AbsoluteLayout>
 
-            <StackLayout class="hr-light m-10"></StackLayout>
-
-            <StackLayout borderRadius="20" class="note">
-                <StackLayout orientation="horizontal" horizontalAlignment="left" class="p-10">
-                    <Image height="50" width="50" src="https://pierrecastaingv.github.io/Orthalis/images/patient2.png"
-                        class="m-r-10" borderRadius="100%"></Image>
-                    <StackLayout>
-                        <Label class="h3" text="Sidonie"></Label>
-                        <Label class="h4" textWrap="true" text="Rendez-vous avec le Docteur Roulette le 12 octobre à 9h."></Label>
-                        <label class="h3" text="Contrôle appareil"></label>
-                    </StackLayout>
-                </StackLayout>
+                <StackLayout class="hr-light m-10"></StackLayout>
             </StackLayout>
-
-            <StackLayout borderRadius="20" class="note">
-                <StackLayout orientation="horizontal" horizontalAlignment="left" class="p-10">
-                    <Image height="50" width="50" src="https://pierrecastaingv.github.io/Orthalis/img/utilisateur.jpg"
-                        class="m-r-10" borderRadius="100%"></Image>
-                    <StackLayout>
-                        <Label class="h3" text="Eléonore"></Label>
-                        <Label class="h4" textWrap="true" text="Rendez-vous avec le Docteur Finky le 21 décembre à 11h."></Label>
-                        <label class="h3" text="Pose appareil"></label>
-                    </StackLayout>
-                </StackLayout>
-            </StackLayout>
-
-        </StackLayout>
-    </scrollView>
+        </GridLayout>
+        <GridLayout row="1">
+        <scrollView orientation="vertical">
+                    <ListView 
+                        #chatBox
+                        separatorColor="transparent"
+                        [items]="messages"
+                        (loaded)="scrollChatToBottom()"
+                        row="1">
+                        <ng-template let-item="item">
+                        <GridLayout 
+                            class="bubble-container">
+                            <StackLayout orientation="horizontal"
+                            [class]="bubbleClass(item)">
+                            <Image 
+                            [src]="item.sender.pictureUrl"
+                            [class]="bubbleClass(item) + '-picture'">
+                            </Image>
+                            <TextView
+                                editable="false"
+                                class="message-content"
+                                [text]="item.content"></TextView>
+                            <Label
+                                [text]="item.date"
+                                class="message-date"></Label>
+                                <Label
+                                [text]="item.name"
+                                class="message-date"></Label>
+                            </StackLayout>
+                        </GridLayout>
+                        </ng-template>
+                    </ListView>
+                    </scrollView>
+                    </GridLayout>
+                    <GridLayout row="2" height="50">
+                    <label text="BANDEAU PUB" horizontalAlignment="center" verticalAlignment="center"></label>
+                    <Image #Pub src="res://logo" (tap)="pubdefile(Pub)"></Image>
+                    </GridLayout>
+                    
 
 </GridLayout>
+

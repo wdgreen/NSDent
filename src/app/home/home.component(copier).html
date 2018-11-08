@@ -1,0 +1,62 @@
+<ActionBar class="action-bar" [isEnabled]="!chargement">
+    <!-- 
+    Use the NavigationButton as a side-drawer button in Android
+    because ActionItems are shown on the right side of the ActionBar
+    -->
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <!-- 
+    Use the ActionItem for IOS with position set to left. Using the
+    NavigationButton as a side-drawer button in iOS is not possible,
+    because its function is to always navigate back in the application.
+    -->
+    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()" ios.position="left">
+    </ActionItem>
+    <Label class="action-bar-title" text="Accueil"></Label>
+</ActionBar>
+
+
+<GridLayout>
+    
+    <scrollView orientation="vertical">
+        <StackLayout orientation="vertical">
+            <Image src="res://vaguetop" class="header"></Image>
+            <Image src="res://logo" class="logo"  width="20%" height="20%" ></Image>
+            <AbsoluteLayout class="imgcabinet" marginTop="-30" borderRadius="22">
+                <Image src="https://pierrecastaingv.github.io/Orthalis/img/cabinet.png" borderRadius="10" stretch="aspectFill" left="0" top="20" width="100%" height="100%"></Image>
+                <StackLayout top="0" bottom="0" width="100%" height="100%" margin="0" borderRadius="22">
+                    <label class="h2" text="yolo" borderRadius="22"></label>
+                </StackLayout>
+            </AbsoluteLayout>
+
+            <StackLayout class="hr-light m-10"></StackLayout>
+
+            <StackLayout borderRadius="20" class="note">
+                <StackLayout orientation="horizontal" horizontalAlignment="left" class="p-10">
+                    <Image height="50" width="50" src="https://pierrecastaingv.github.io/Orthalis/images/patient2.png"
+                        class="m-r-10" borderRadius="100%"></Image>
+                    <StackLayout>
+                        <Label class="h3" text="Sidonie"></Label>
+                        <Label class="h4" textWrap="true" text="Rendez-vous avec le Docteur Roulette le 12 octobre à 9h."></Label>
+                        <label class="h3" text="Contrôle appareil"></label>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout borderRadius="20" class="note">
+                <StackLayout orientation="horizontal" horizontalAlignment="left" class="p-10">
+                    <Image height="50" width="50" src="https://pierrecastaingv.github.io/Orthalis/img/utilisateur.jpg"
+                        class="m-r-10" borderRadius="100%"></Image>
+                    <StackLayout>
+                        <Label class="h3" text="Eléonore"></Label>
+                        <Label class="h4" textWrap="true" text="Rendez-vous avec le Docteur Finky le 21 décembre à 11h."></Label>
+                        <label class="h3" text="Pose appareil"></label>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+
+        </StackLayout>
+    </scrollView>
+
+</GridLayout>
+
+
