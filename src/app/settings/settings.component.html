@@ -18,9 +18,9 @@
     <StackLayout orientation="vertical">
         <Image src="res://vaguetop" verticalAlignment="top" horizontalAlignment="center"></Image>
         <Label id="iconec" col="0" row="0" text="&#xf013;" class="fa" fontSize="48" color="white" verticalAlignment="top"
-            horizontalAlignment="center" marginTop="-90" marginBottom="100"></Label>
+            horizontalAlignment="center" marginTop="-90" marginBottom="50"></Label>
         <GridLayout class="list1" columns="40,260" rows="40" backgroundColor="white" horizontalAlignment="center"
-            borderRadius="2" marginTop="20">
+            borderRadius="2" marginTop="10">
             <Label id="iconec" col="1" row="0" text="Recevoir des notifications" verticalAlignment="center" paddingLeft="30"></Label>
             <Label id="iconec" col="0" row="0" text="&#xf0f3;" class="fa" fontSize="17" verticalAlignment="center"
                 horizontalAlignment="center"></Label>
@@ -65,7 +65,7 @@
         </GridLayout>
 
         <!-- Logout Button -->
-        <Button text="Déconnecter" (tap)="submit()" class="btn btn-primary btn-rounded-lg"></Button>
+        <Button text="Déconnecter" (tap)="submit()" class="btn btn-primary btn-rounded-lg" height="35" marginTop="30"></Button>
 
     </StackLayout>
 </ScrollView>

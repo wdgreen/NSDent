@@ -15,6 +15,7 @@ import { DataService } from "~/app/services/data.service";
 import { SessionGuard } from "~/app/services/session.guard";
 import { ModalViewComponent } from './modal-view/modal-view.component';
 
+
 @NgModule({
     bootstrap: [
         AppComponent
@@ -27,7 +28,7 @@ import { ModalViewComponent } from './modal-view/modal-view.component';
     ],
     declarations: [
         AppComponent,
-        ModalViewComponent
+        ModalViewComponent       
     ],
     providers: [
         ConnectiviteService,

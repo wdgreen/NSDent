@@ -21,6 +21,7 @@ export class CameraComponent implements OnInit {
   public width: number = 300;
   public height: number = 300;
   public isPhtoPrise: boolean = false;
+  public isPhtoPrise2: boolean = false;
 
 
   onTakePhoto() {
@@ -33,11 +34,14 @@ export class CameraComponent implements OnInit {
 
     takePicture(options)
         .then(imageAsset => {
+            this.isPhtoPrise = true;
+            this.isPhtoPrise2 = true;
             this.imageTaken = imageAsset;
             console.log("Size: " + imageAsset.options.width + "x" + imageAsset.options.height);
-            this.isPhtoPrise = true;
+            
+
         }).catch(err => {
-            console.log(err.message);
+            console.log("erreur photo", err.message);
         });
 }
 

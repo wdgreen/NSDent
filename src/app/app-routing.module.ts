@@ -4,7 +4,7 @@ import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { SessionGuard } from "~/app/services/session.guard";
 
 const routes: Routes = [
-    { path: "", redirectTo: "/login", pathMatch: "full" },
+    { path: "", redirectTo: "/home", pathMatch: "full" },
     { path: "login", loadChildren: "~/app/login/login.module#LoginModule", canActivate:[SessionGuard] },
     { path: "auth", loadChildren: "~/app/auth/auth.module#AuthModule" },
     { path: "home", loadChildren: "~/app/home/home.module#HomeModule" },

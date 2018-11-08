@@ -20,7 +20,7 @@
         <Image [src]="imageTaken" flexGrow="3" class="p-15 img-rounded"></Image>
         <Button *ngIf="!isPhtoPrise" text="Prendre une Photo" class="btn btn-primary btn-active" (tap)="onTakePhoto()" flexGrow="1"></Button>
         <Button *ngIf="!isPhtoPrise" text="Requête d'Autorisation " class="btn btn-primary btn-active" (tap)="onRequestPermissions()" flexGrow="1"></Button>
-        <Button *ngIf="isPhotoPrise" text="Envoyer une Photo Cabinet" class="btn btn-primary btn-active" (tap)="onRequesEnvoie()" flexGrow="1"></Button>
+        <Button *ngIf="isPhotoPrise2" text="Envoyer une Photo Cabinet" class="btn btn-primary btn-active" (tap)="onRequesEnvoie()" flexGrow="1"></Button>
 
     </FlexboxLayout>
     <!-- << camera-module-html -->

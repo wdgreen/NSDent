@@ -15,6 +15,7 @@ import { ConnectiviteService } from "./services/connectivite.service"
     templateUrl: "app.component.html"
 })
 export class AppComponent implements OnInit {
+    
     private _activatedUrl: string;
     private _sideDrawerTransition: DrawerTransitionBase;
 
