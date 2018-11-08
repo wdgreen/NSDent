@@ -8,9 +8,8 @@ ActionBar {
 }
 
 .imgProfil {
-    width: 125;
     height: 125;
-    border-radius: 100%;
+    border-radius: 22;
     margin-top: -48;
 }
 

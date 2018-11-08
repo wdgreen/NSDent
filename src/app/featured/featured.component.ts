@@ -20,23 +20,22 @@ export class FeaturedComponent implements OnInit {
     patient;
     photosPatient;
     photosUrl;
-    photo;
+    photoProfil;
 
     constructor(private connectiviteService:ConnectiviteService,
                 private patientService:PatientService) {
         this.chargement = Globals.chargement;
         this.patient = Globals.patient.result[0][0];
-        this.photosPatient = this.patient.photos.identity;
-        this.photosUrl = Settings.urlPatients;
-        this.photo = `${Settings.urlImages}${this.photosPatient}`;
+        
+        // this.photosUrl = Settings.urlPatients;
+        this.photoProfil = `${Settings.urlImages}${this.patient.photos.identity}`;
     }
 
     ngOnInit(): void { 
         this.chargement = false;
         console.log("*********************************************** Contenu de Globals.patient : " + JSON.stringify(Globals.patient) );
-        console.log("_______________________________________________ Test : " + JSON.stringify(this.patient.patient.codePatient));
-        console.log(this.photosPatient);
-        console.log("Requete image : " + this.photo);
+        console.log("Requete image sans formatage : " + this.photoProfil);
+        console.log("Requete image avec formatage : " + encodeURI(this.photoProfil));
     }
 
     onDrawerButtonTap(): void {

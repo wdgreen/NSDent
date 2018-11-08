@@ -15,16 +15,19 @@ export class HomeComponent implements OnInit {
 
     chargement: boolean;
     cabinet;
+    photoCabinet;
 
     constructor() {
         this.chargement = Globals.chargement;
         this.cabinet = Globals.cabinet[0];
+        this.photoCabinet = `http://${encodeURI(this.cabinet.photo_cabinet)}`;
     }
 
     ngOnInit(): void {
         this.chargement = false;
         console.log("*********************************************** Contenu de Globals.cabinet : " + JSON.stringify(Globals.cabinet) );
-        console.log("_______________________________________________ Test : " + JSON.stringify(this.cabinet.photo_cabinet));
+        console.log("_______________________________________________ Test : " + this.cabinet.photo_cabinet);
+        console.log("_______________________________________________ Test : " + this.photoCabinet);
         console.log("*********************************************** Contenu de Globals.patient : " + JSON.stringify(Globals.patient) );
     }
 
