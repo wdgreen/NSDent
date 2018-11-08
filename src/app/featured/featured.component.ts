@@ -27,7 +27,6 @@ export class FeaturedComponent implements OnInit {
         this.chargement = Globals.chargement;
         this.patient = Globals.patient.result[0][0];
         
-        // this.photosUrl = Settings.urlPatients;
         this.photoProfil = `${Settings.urlImages}${this.patient.photos.identity}`;
     }
 
