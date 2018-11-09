@@ -21,18 +21,20 @@
 
 ## Démonstration
 
-* Lancez l'application 'MonOrtho'
+* Lancez l'application 'NsDent'  
+
+NB: impossibilté technique de renommer l'appli, il build un projet avec le nom de du répertoire original, aucune modif possible ensuite.
 
 ### Les pages login
 
-* Vous arrivez sur une page vous proposant de saisir votre 'Code cabinet', entrez 12345 (ensuite 54321 si vous voulez montrez le changement dynamique de cabinet)
-* Vous arrivez sur le second login  
+* Vous arrivez sur la première page vous proposant de saisir votre 'Code cabinet', entrez 12345 (pour tous les telephone du salon.)
 
-## Login Cabinet
-
+## Login Cabinet Rappel Pour tous les téléphones
 12345
 
-## Login Patient
+ ## Login Patient
+* Seconde page login celle du patient. 
+les étiquettes au dos des téléphones vous donne les identifiants. Utilisez uniquement ces identifiants pour le téléphone concerné.
 
 **Patient 1 :**
 BU26
@@ -42,6 +44,15 @@ BU26
 TO53
 12345
 
+**Patient 3 :**
+DU13
+12345
+
+*Concernant les notifications.
+A cause des particularités options des différents téléphones la notif apparait sous forme d'icone et non dépliée.
+il y a 4 notif toutes les 10 secondes. vous pouvez en activée une seule en la tirant. ça suffira pour la démo. Le fait de passer d'une page à l'autre les suppriment.
+
+* Par manque de temps et de diponibilité sur les ressources il y a certaines parties de l'appli qui ne sont pas encore dynamique et pas en corrélation avec ou le cabinet ou le patient.
 
 # Prérequis pour builder l'application
 
